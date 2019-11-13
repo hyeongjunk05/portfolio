@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang='ko'>
+ <head>
+	<meta charset='utf-8'/>
+  <title>login</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0'/>
+  <link rel='shortcut icon' href='imgs/favicon.png'/>
+  <link rel='apple-touch-icon' href='imgs/favicon.png'/>
+	<style>
+		*{margin:0; padding:0;}
+		a:link, a:visited{text-decoration:none;}
+
+		/*##### first_setting #####*/
+			#wrap{width:401px; margin:0 auto; text-align:center;}
+			label{display:none;}
+
+		/*##### header #####*/
+			#headerWrap{width:100%; border-bottom:1px solid #ccc;}
+			#header{width:100px; margin:30px auto;}
+			h1{width:50px; margin:0 auto;}
+			h1 a{display:block; width:100%;}
+			#header img{width:100%;}
+
+		/*##### container #####*/
+			#container{width:400px; margin:0 auto;}
+			#login{width:100%; margin-top:30px;}
+			#login h2{font-size:17px; margin-bottom:15px;}
+			#login .lines{display:block; margin-bottom:10px; font-size:17px; font-weight:700;}
+			#login .lines:after{content:'   ───────────'; color:#aeaeae;}
+			#login .lines:before{content:'──────────   '; color:#aeaeae;}
+			
+			#login fieldset{border:none;}
+			#login fieldset legend{display:none;}
+			#login .login_facebook{width:100%; height:50px; margin-bottom:20px; background-color:#3B5998; color:#fff; font-weight:800; border:none; letter-spacing:3px; line-height:50px; border-radius:30px; cursor:pointer;}
+			#login .login_facebook:hover{background-color:rgba(0,0,150,0.5); }
+
+		/*##### userid #####*/
+			.userid_p{margin-bottom:7px;}
+			#userid{width:90%; height:40px; text-indent:10px; font-size:16px;}
+
+
+		/*##### userpw #####*/
+			#userpw{width:90%; height:40px; text-indent:10px; font-size:16px;}
+
+		/*##### rememberMe #####*/
+			.rememberMe{width:50%; margin-top:20px; float:left; color:#aaa;}
+			.rememberMe input{width:20px; height:20px; border:1px solid #1DB954; background-color:red;/*이거 안먹는데 왜지??? 아직 체크박스 꾸미는 건 못하겠네.*/}
+
+		/*##### login_lower #####*/
+			.login_lower{width:50%; margin-top:12px; float:left;}
+			.login_lower input{width:82%; height:40px; background-color:#1DB954; border:none; border-radius:30px; color:#fff; font-weight:700; line-height:40px;}
+			.login_lower input:hover{background-color: rgba(0,225,0,0.7); cursor:pointer;}
+
+
+		/*##### forgotPw #####*/
+			#forgotPw{width:100%; height:60px; margin-top:20px; border-bottom:1px solid #ccc;}
+			#forgotPw a{width:100%; font-weight:600; color:#1DB979;}
+
+		/*##### lower_sign_up #####*/
+			#lower_sign_up{padding-bottom:40px; border-bottom:1px solid #ccc;}
+			#lower_sign_up div{margin-top:40px;}
+			#lower_sign_up div p{margin-bottom:30px; font-weight:700;}
+			#lower_sign_up a{display:block; width:100%; line-height:50px; letter-spacing:3px; color:#616467; font-weight:700; background-color:#fff; border-radius:50px; border:2px solid #616467;}
+			#lower_sign_up a:hover{background-color:#616467; color:#ddd; cursor:pointer;}
+
+		/*##### footer #####*/
+			#footer{width:100%; margin-top:15px; font-size:11px; color:#ccc;}
+			#footer span{color:#1DB954;}
+			#footer a:hover{text-decoration:underline; color:#1DB954;}
+
+		@media all and (min-width:320px) and (max-width:479px){
+	
+				#wrap{width:320px; margin:0 auto; text-align:center;}
+
+			/*##### container #####*/
+				#container{width:320px; margin:0 auto;}
+				#login{width:100%; margin-top:30px;}
+				#login h2{font-size:17px; margin-bottom:15px;}
+				#login .lines{display:block; margin-bottom:10px; font-size:17px; font-weight:700;}
+				#login .lines:after{content:'   ─────────'; color:#aeaeae;}
+				#login .lines:before{content:'────────   '; color:#aeaeae;}
+				
+				#login fieldset{border:none;}
+				#login fieldset legend{display:none;}
+				#login .login_facebook{width:100%; height:50px; margin-bottom:20px; background-color:#3B5998; color:#fff; font-weight:800; border:none; letter-spacing:3px; line-height:50px; border-radius:30px; cursor:pointer;}
+				#login .login_facebook:hover{background-color:rgba(0,0,150,0.5); }
+
+			
+		}
+	</style>
+ </head>
+
+ <body>
+  <div id='wrap'>
+	<div id='headerWrap'>
+		<header id='header'>
+			<h1>
+				<a href='index.html' title='apple'>
+					<img src='imgs/apple_logo1.png' alt='apple_logo'/>
+				</a>
+			</h1>
+		</header>
+	</div>
+	<div id='container'>
+		<section id='login'>
+			<h2>To continue, log in to Apple</h2>
+			<form action='#' method='post'>
+				<fieldset>
+					<legend>login</legend>
+					<p>
+						<label for='login_facebook'>id</label>
+						<input class='login_facebook' type='submit' value='LOGIN IN WITH FACEBOOK' name='login_facebook' id='login_facebook'/>
+					</p>
+					<span class='lines'>or</span>
+					<p class='userid_p'>
+						<label for='userid'>id</label>
+						<input id='userid' type='text' name='userid' placeholder='Email address or username' autocomplete='off' required autofocus/>
+					</p>
+					<p class='userpw_p'>
+						<label for='userpw'>password</label>
+						<input id='userpw' type='password' name='userpw' placeholder='Password' autocomplete='off' required/>
+					</p>
+					<p class='rememberMe'>
+						<input type='checkbox' value='Remember me' name='login_facebook'/>
+						<span>Remember me</span>
+					</p>
+					<p class='login_lower'>
+						<label for='logins'>id</label>
+						<input type='submit' value='LOG IN' name='logins' id='logins'/>
+					</p>
+				</fieldset>
+			</form>
+
+		</section>
+		<div id='forgotPw'>
+				<a href='#none' title='forgotPw'>
+					Forgot your password?
+				</a>
+			</div>
+		<div id='lower_sign_up'>
+			<div>
+				<p>Don't have an account?</p>
+				<a href='signup.html' title='Sign Up'>
+					SIGN UP FOR APPLE
+				</a>
+			</div>
+		</div>
+	</div>
+	<footer id='footer'>
+		<p>
+			If you click "Log in with Facebook" and are not a Apple user, you will be<br/> registered and you agree to Apple's <a href='#' title='terms'><span>Terms & Conditions</span></a> and <a href='#' title='privacyPolicy'><span>Privacy Policy</span></a>.
+		</p>
+	</footer>
+  </div>
+ </body>
+</html>
+
+

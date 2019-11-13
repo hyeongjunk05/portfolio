@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang='ko'>
+ <head>
+  <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0'/>
+  <meta charset='utf-8'/>
+  <title>signup</title>
+  <!--안드로이드 버전-->
+  <link rel='shortcut icon' href='imgs/favicon.png'/><!--rel은 문서의 종류임. 우린 지금까지 stylesheet이었음.-->
+  <link rel='apple-touch-icon' href='imgs/favicon.png'/>
+  <style>
+	/*########## first setting ##########*/
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none;}
+		body, div,header,section,footer,nav, ul, li ,p{margin:0; padding:0;}
+
+
+		#wrap{max-width:1920px; width:100%; position:relative;}
+
+	/*########## header ##########*/
+		#header{width:100%; position:absolute;}		
+		#navWrap{width:100%; height:55px;}
+		#nav{width:1000px; height:100%; margin:0 auto;}
+		#nav ul{width:100%; height:100%;}
+		#nav li{display:block; float:left; width:10.5%; height:100%; text-align:left;}
+		#nav li a{display:block; width:100%; height:100%; color:#cdcdcd; position:relative; line-height:53px;}
+		#nav li a img{position:absolute; top:7px;}
+
+		#subnavWrap{width:100%; height:60px; line-height:60px; background-color:#EEECE9;}
+				
+		#subnav{width:1000px; height:100%; margin:0 auto;}
+		#subnavWrap #left{width:20%; float:left; font-size:19px; color:#373534; font-weight:800; text-align:left;}
+		#subnavWrap #right{width:80%; height:100%; float:left; text-align:right; position:relative;}
+		#subnavWrap #right ul{width:45%; height:100%; position:absolute; right:0;}
+		#subnavWrap #right li{width:33%; color:#ababab; font-size:12px; text-align:center; float:left;}
+		#subnavWrap #right li a{color:#444545; font-size:12px; font-weight:700;}
+
+		#mobHeader{display:none;}
+
+	/*########## container ##########*/
+		#container{width:100%; overflow:hidden;}
+		#attachment{width:100%; height:275px; color:#fff; font-size:30px; text-align:center; font-weight:400; font-family:'arial', sans-serif;
+		background-image:url('imgs/background_signup.png'); background-repeat:no-repeat; overflow:hidden;}
+		#attachment h2{margin-top:165px;}
+
+	/*##########  idDesc ##########*/
+		#idDesc{width:800px; margin:0 auto; text-align:center;}
+		#idDesc div{width:600px; height:50px; margin:35px auto 0; font-family:'arial', sans-serif;}
+		#idDesc div a{color:#00A0E1;}
+		#idDesc form{width:795px; margin:0 auto;}
+		fieldset{height:240px; border:none; border-bottom:1px solid #ccc; padding-top:30px;}
+		fieldset legend{display:none;}
+		fieldset p{width:444px; height:40px; margin:0 auto;}
+		fieldset p input{width:440px; height:40px; text-indent:13px; border-radius:7px; box-shadow:3px 3px 3px #ababab; outline:none;}
+		fieldset .names input{width:46%;}
+		fieldset .names #FirstName{margin-right:4.5%;}
+		
+		#idDesc fieldset div{width:440px; height:62px;}
+		fieldset h3{width:440px; height:22px; text-align:left; margin:0 auto; font-size:14px; color:#bbb;}
+		fieldset select{width:444px; height:40px; border-radius:7px; outline:none;}
+		.birthday_p{height:60px; padding-top:15px;}
+
+	/*########## fieldset_second ##########*/
+		.fieldset_sec{height:230px;}
+		.fieldset_sec p{padding-bottom:20px;}
+
+		.fieldset_sec span{display:block; width:440px; height:20px; line-height:1px; text-indent:14px; color:#888; font-size:14px; text-align:left; margin:0 auto;}
+
+	/*########## fieldset_third ##########*/
+		.fieldset_thi{height:500px; padding-top:30px;}
+		.fieldset_thi ul{width:100%;}
+		.fieldset_thi li{height:120px;}
+		.fieldset_thi p{height:50px;}
+		em{display:block; width:440px; margin:0 auto; color:#888; font-size:13px;}
+		.fieldset_thi div{width:150px; margin:30px auto 0;}
+		.fieldset_thi div #continue{width:100px; height:40px; line-height:40px; color:#fff; background-color:#1A83D7; border-color:#3597E5; font-size:17px; border-radius:15px; outline:none; cursor:pointer; text-align:center;}
+		.fieldset_thi div #continue:hover{background-color:#1AacD7;}
+	
+
+	/*########## footer ##########*/
+		#footerWrap{width:100%; height:425px; background-color:#2F2F37;}
+		#footerWrap #footer{width:1400px; height:100%; margin:0 auto; overflow:hidden;}
+
+
+	/*########## footer_upper ##########*/
+		#upper{width:100%; height:350px;} 
+		#upper ul{width:18%; padding-right:5%; float:left;}
+		#upper .wide_ul{width:31%}
+		
+		.white_bold{display:block; padding:60px 0 25px; color:#fff; font-family:Oswald, sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; line-height:20px;}
+		.karla{font-family:Karla, sans-serif; font-size: 13px; line-height: 20px; color:#fff;}
+		.intro{color:hsla(0,0%,100%,.7); font-size:13px; line-height: 20px;}
+		.intro a.orange{color:#faaf52; text-decoration:underline;}
+		#upper .padding_bottom0{padding-bottom:30px;}
+		#upper .padding_bottom span{display:block; height:40px; padding-top:30px;}
+
+		#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+		#upper .narrow_div li{padding-bottom:13px; font-size:12px;}
+		#upper .narrow_div li a{color:hsla(0,0%,100%,.7);}
+		#upper .narrow_div li:hover a{text-decoration:underline; 
+		color:#fff;}
+
+		#upper .contact .position{position:relative;}
+		#upper .contact img{position:absolute; bottom:0; left:-3px;}
+		#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+		#upper .contact a:hover{text-decoration:underline; color:#fff;}
+		#upper li.white_bold{display:inline-block; width:85px; height:20px; padding-bottom:0; border-bottom:2px solid hsla(0,0%,100%,.7);}
+		#upper li.white_bold:hover{border-bottom:2px solid #fff;}
+		#upper li.white_bold a{color:#fff;}
+		#upper li.white_bold a:hover{text-decoration:none;}
+
+		#upper .follow_me{width:300px; float:left;}
+		#upper .follow_me ul{width:150px; height:33px; float:none;}
+		#upper .follow_me ul li{float:left; width:33px; height:100%;}
+		#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+		#upper .follow_me ul li a img{position:absolute; left:-8px;}
+		#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+		#upper .follow_me ul .top2px a img{top:2px;}
+
+	/*########## footer_lower ##########*/
+
+		#lower{width:100%; height:15px; padding:30px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:11px;}
+		#lower div{width:40%; float:left;}
+		#lower div span{padding-right:10px;}
+		#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+		#lower p {width:60%; text-align:right; float:left;}
+		#lower p a{color:hsla(0,0%,100%,.7);}
+		#lower p span{color:#fff;}
+		#lower p span:hover{text-decoration:underline; font-weight:700;}
+
+	
+	@media all and (min-width:768px) and (max-width:1025px){
+		/*########## header ##########*/
+			
+			#nav{width:768px; height:100%; margin:0 auto;}
+			#nav ul{width:96%; height:100%; padding-left:4%;}
+			#nav li{display:block; float:left; width:10.5%; height:100%; text-align:left;}
+			#nav li a{display:block; width:100%; height:100%; color:#cdcdcd; position:relative; line-height:53px;}
+			#nav li a img{position:absolute; top:7px;}
+
+			#subnavWrap{width:100%; height:60px; line-height:60px; background-color:#EEECE9;}
+					
+			#subnav{width:768px; height:100%; margin:0 auto;}
+			#subnavWrap #left{width:20%; float:left; font-size:19px; color:#373534; font-weight:800; text-align:left; text-indent:35px;}
+			#subnavWrap #right{width:80%; height:100%; float:left; text-align:right; position:relative;}
+			#subnavWrap #right ul{width:60%; height:100%; position:absolute; right:0;}
+			#subnavWrap #right li{width:33%; color:#ababab; font-size:12px; text-align:center; float:left;}
+			#subnavWrap #right li a{color:#444545; font-size:12px; font-weight:700;}
+
+			#mobHeader{display:none;}
+
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%;}
+
+			#footer:after{content:''; display:block; clear:both;}
+		
+		/*########## footer_upper ##########*/
+			#upper{width:94%; height:350px; padding:0 3%;} 
+			#upper ul{width:27%; padding-right:3%; float:left;}
+			#upper .wide_ul{width:34%;}
+
+			#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+
+			#upper li.white_bold{display:inline-block; width:97px;}
+
+			#upper .follow_me{width:15%; float:left;}
+
+		/*########## footer_lower ##########*/
+
+			#lower{width:100%; height:100%; padding:15px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:70%; padding-left:3%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:24%; padding-right:3%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+	}
+	
+	@media all and (min-width:480px) and (max-width:767px){
+		/*########## header ##########*/
+			#header{width:100%;}		
+			#navWrap{display:none;}
+			#subnavWrap{display:none;}
+			
+			#mobHeader{display:block;}
+			#mobHeader p{text-align:center;}
+
+		/*########## container ##########*/
+			#container{width:100%; overflow:hidden;}
+			#attachment{width:100%; height:140px; color:#fff; font-size:18px; text-align:center; font-weight:400; font-family:'arial', sans-serif;
+			background-image:url('imgs/background_signup.png'); background-repeat:no-repeat; overflow:hidden;}
+			#attachment h2{margin-top:70px;}
+
+		/*##########  idDesc ##########*/
+			#idDesc{width:100%; text-align:center;}
+			#idDesc div{width:99%; height:50px; margin:16px auto 0; font-family:'arial', sans-serif;}
+			#idDesc div a{color:#00A0E1;}
+			#idDesc div a:hover{text-decoration:underline;}
+			#idDesc form{width:65%;}
+			fieldset{width:99%; height:202px; border:none; border-bottom:1px solid #ccc; padding-top:30px;}/*form까지는 너비가 제대로 먹는데 fieldset 너비가 안 먹음. 왠지 몰겠네*/
+			fieldset legend{display:none;}
+			fieldset .names #FirstName{margin-right:3%;}
+
+			#idDesc fieldset div{width:100%; height:62px;}
+			fieldset h3{width:100%; height:22px; text-align:left; margin:0 auto; font-size:14px; color:#bbb; text-indent:10px;}
+			fieldset select{width:100%; height:40px; border-radius:7px; text-indent:10px; padding-right:3%;}
+			.birthday_p{height:45px; padding-top:6px;}
+
+			fieldset p{width:100%; height:40px;}
+			fieldset p input{width:100%; height:40px; text-indent:13px; border-radius:7px; box-shadow:3px 3px 3px #ababab;}
+
+		/*########## fieldset_second ##########*/
+			#idDesc .fieldset_sec{height:220px;}
+			#idDesc .fieldset_sec p{height:63px; padding-bottom:0;}
+
+			#idDesc .fieldset_sec span{display:block; width:100%; height:20px; line-height:1px; text-indent:14px; color:#888; font-size:14px; text-align:left; margin:0 auto;}
+
+		/*########## fieldset_third ##########*/
+			#idDesc .fieldset_thi{height:500px; padding-top:30px;}
+			#idDesc .fieldset_thi ul{width:100%;}
+			#idDesc .fieldset_thi li{height:120px;}
+			.fieldset_thi p{width:100%; height:50px;}
+			em{display:block; width:100%; margin:0 auto; color:#888; font-size:13px;}
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+			#footer:after{content:''; display:block; clear:both;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:92%; height:100%; padding:0 4%;} 
+			#upper ul{width:100%; float:none;}
+			#upper .wide_ul{width:100%;}
+			#upper .wide_ul b{padding-top:20px;}
+
+			#upper .narrow_div{display:none;}
+			
+			#upper .contact{width:60%; height:123px; float:left;}
+			#upper .contact .white_bold{padding:20px 0 10px;}
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:none;}
+
+			#upper .follow_me{width:35%; height:75px; float:left;}
+			#upper .follow_me h4{width:100%; height:73%;}
+			#upper .follow_me b{padding-top:25px;}
+			#upper .follow_me ul{width:150px; height:40%; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+			#upper:after{content:''; display:block; clear:both;}
+		/*########## footer_lower ##########*/
+
+			#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:73%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:20%; padding-right:7%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+	}
+
+	@media all and (min-width:320px) and (max-width:479px){
+		/*########## header ##########*/
+			#header{width:100%;}		
+			#navWrap{display:none;}
+			#subnavWrap{display:none;}
+			
+			#mobHeader{display:block; text-align:center;}
+
+		/*########## container ##########*/
+			#container{width:100%;}
+			#attachment{width:100%; height:140px; color:#fff; font-size:18px; text-align:center; font-weight:400; font-family:'arial', sans-serif;
+			background-image:url('imgs/background_signup.png'); background-repeat:no-repeat; overflow:hidden;}
+			#attachment h2{margin-top:70px;}
+
+		/*##########  idDesc ##########*/
+			#idDesc{width:100%; text-align:center;}
+			#idDesc div{width:99%; height:50px; margin:16px auto 0; font-family:'arial', sans-serif;}
+			#idDesc div a{color:#00A0E1;}
+			#idDesc div a:hover{text-decoration:underline;}
+			#idDesc form{width:99%;}
+			fieldset{width:99%; height:202px; border:none; border-bottom:1px solid #ccc; padding-top:30px;}/*form까지는 너비가 제대로 먹는데 fieldset 너비가 안 먹음. 왠지 몰겠네*/
+			fieldset legend{display:none;}
+			fieldset .names #FirstName{margin-right:3%;}
+
+			#idDesc fieldset div{width:100%; height:62px;}
+			fieldset h3{width:100%; height:22px; text-align:left; margin:0 auto; font-size:14px; color:#bbb; text-indent:10px;}
+			fieldset select{width:100%; height:40px; border-radius:7px; text-indent:10px; padding-right:3%;}
+			.birthday_p{height:45px; padding-top:6px;}
+
+			fieldset p{width:100%; height:40px;}
+			fieldset p input{width:100%; height:40px; text-indent:13px; border-radius:7px; box-shadow:3px 3px 3px #ababab;}
+
+		/*########## fieldset_second ##########*/
+			#idDesc .fieldset_sec{height:220px;}
+			#idDesc .fieldset_sec p{height:63px; padding-bottom:0;}
+
+			#idDesc .fieldset_sec span{display:block; width:100%; height:20px; line-height:1px; text-indent:14px; color:#888; font-size:14px; text-align:left; margin:0 auto;}
+
+		/*########## fieldset_third ##########*/
+			#idDesc .fieldset_thi{height:500px; padding-top:30px; border:none;}
+			#idDesc .fieldset_thi ul{width:100%;}
+			#idDesc .fieldset_thi li{height:120px;}
+			.fieldset_thi p{width:100%; height:50px;}
+			em{display:block; width:100%; margin:0 auto; color:#888; font-size:13px;}
+								
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+			#footer:after{content:''; display:block; clear:both;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:95%; height:100%; padding-left:5%;} 
+			#upper ul{width:100%; float:none;}
+			#upper .wide_ul{display:none;}
+
+			#upper .narrow_div{display:none; float:none;}
+			
+			#upper .contact .white_bold{padding:20px 0 10px;}
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:none;}
+
+			#upper .follow_me{width:100%; height:75px; float:none;}
+			#upper .follow_me h4{width:100%; height:73%;}
+			#upper .follow_me b{padding-top:25px;}
+			#upper .follow_me ul{width:150px; height:40%; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+			#upper:after{content:''; display:block; clear:both;}
+		/*########## footer_lower ##########*/
+
+			#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:100%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {display:none;}
+	}
+  </style>
+ </head>
+
+ <body>
+  <div id='wrap'>
+	<header id='header'>
+		<div id='navWrap'>
+			<nav id='nav'>
+				<ul>
+					<li>
+						<a href='index.html' title='#'>
+							<img src='imgs/logo_signup.svg' alt='logo'/>
+						</a>
+					</li>
+					<li>
+						<a href='mac_apple.html' title='#'>
+							Mac
+						</a>
+					</li>
+					<li>
+						<a href='#' title='#'>
+							iPad
+						</a>
+					</li>
+					<li>
+						<a href='iPhone_apple.html' title='#'>
+							iPhone
+						</a>
+					</li>
+					<li>
+						<a href='#' title='#'>
+							Watch
+						</a>
+					</li>
+					<li>
+						<a href='#' title='#'>
+							TV
+						</a>
+					</li>
+					<li>
+						<a href='#' title='#'>
+							Music
+						</a>
+					</li>
+					<li>
+						<a href='#' title='#'>
+							Support
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div id='subnavWrap'>
+			<div id='subnav'>
+				<div id='left'>
+					<span>
+						Apple ID
+					</span>
+				</div>
+				<div id='right'>
+					<ul>
+						<li>
+							<a href='login.html' title='#'>
+								Sign in
+							</a>
+						</li>
+						<li>
+							<span>
+								Create Your Apple ID
+							</span>
+						</li>
+						<li>
+							<a href='#' title='#'>
+								FAQ
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id='mobHeader'>
+			<p>
+				<a href='index.html' title='#'>
+					<img src='imgs/logo_signup.svg' alt='logo'/>
+				</a>
+			</p>
+		</div>
+	</header>
+	<div id='container'>
+		<section id='attachment'>
+			<h2>Create Your Apple ID</h2>
+		</section>
+		<section id='idDesc'>
+			<div>
+				One Apple ID is all you need to access all Apple services.<br/>
+				Already have an Apple ID? 
+				<a href='#' title='find it here'>
+					Find it here<span>＞</span>
+				</a>
+			</div>
+			<form>
+				<fieldset>
+					<legend></legend>
+					<p class='names'>
+						<input id='FirstName' type='text' name='FirstName' placeholder='First name' title='First name' autocomplete='off' required autofocus/>
+						<input id='LastName' type='text' name='LastName' placeholder='Last name' title='Last name' autocomplete='off' required/>
+					</p>
+					<div>
+						<h3>COUNTRY / REGION</h3>
+						<select>
+							<option value='United States'>United States</option>
+							<option value='South Korea'>South Korea</option>
+							<option value='China'>China</option>
+							<option value='Japan'>Japan</option>
+							<option value='Italy'>Italy</option>
+							<option value='France'>France</option>
+							<option value='United Kingdom'>United Kingdom</option>
+							<option value='Poland'>Poland</option>
+							<option value='Czech Repulic'>Czech Repulic</option>
+							<option value='India'>India</option>
+						</select>
+					</div>
+					<p class='birthday_p'>
+						<input id='Birthday' type='text' name='Birthday' placeholder='Birthday' title='Birthday'/>
+					</p>
+				</fieldset>
+				<fieldset class='fieldset_sec'>
+					<legend></legend>
+					<p>
+						<input id='email' type='email' name='email' placeholder='name@example.com' title='email' autocomplete='off'/>
+					</p>
+					<span>This will be your new Apple ID.</span>
+					<p>
+						<input id='password' type='password' name='password' placeholder='password' title='password'/>
+					</p>
+					<p>
+						<input id='confirmPw' type='password' name='confirmPw' placeholder='confirm password' title='confirm password'/>
+					</p>
+				</fieldset>
+				<fieldset class='fieldset_thi'>
+					<legend></legend>
+					<ul>
+						<li>
+							<p>
+								<select>
+									<option value='Security Question 1' selected='selected'>Security Question 1</option>
+									<option value='South Korea'>What is the first name of your best friend in high school?</option>
+									<option value='China'>What was the name of your first pet?</option>
+									<option value='Japan'>What was the first thing you learned  to cook?</option>
+									<option value='Italy'>What was the first film you saw in the theater?</option>
+									<option value='France'>Where did you go the first time you flew on a plane?</option>
+									<option value='United Kingdom'>What is the last name of your favorite elementary school teacher?</option>
+								</select>
+							</p>
+							<p>
+								<input id='answer1' type='text' name='answer1' placeholder='Answer' title='answer1' autocomplete='off'/>
+							</p>
+						</li>
+						<li>
+							<p>
+								<select>
+									<option value='Security Question 2' selected='selected'>Security Question 2</option>
+									<option value='South Korea'>What is the first name of your best friend in high school?</option>
+									<option value='China'>What was the name of your first pet?</option>
+									<option value='Japan'>What was the first thing you learned  to cook?</option>
+									<option value='Italy'>What was the first film you saw in the theater?</option>
+									<option value='France'>Where did you go the first time you flew on a plane?</option>
+									<option value='United Kingdom'>What is the last name of your favorite elementary school teacher?</option>
+								</select>
+							</p>
+							<p>
+								<input id='answer2' type='text' name='answer2' placeholder='Answer' title='answer2' autocomplete='off'/>
+							</p>
+						</li>
+						<li>
+							<p>
+								<select>
+									<option value='Security Question 3' selected='selected'>Security Question 3</option>
+									<option value='South Korea'>What is the first name of your best friend in high school?</option>
+									<option value='China'>What was the name of your first pet?</option>
+									<option value='Japan'>What was the first thing you learned  to cook?</option>
+									<option value='Italy'>What was the first film you saw in the theater?</option>
+									<option value='France'>Where did you go the first time you flew on a plane?</option>
+									<option value='United Kingdom'>What is the last name of your favorite elementary school teacher?</option>
+								</select>
+							</p>
+							<p>
+								<input id='answer3' type='text' name='answer3' placeholder='Answer' title='answer3' autocomplete='off'/>
+							</p>
+						</li>
+					</ul>
+					<em>
+						These questions will be used to verify your identity and recover your password if you ever forget it.
+					</em>
+					<div>
+						<input id='continue' type='submit' value='continue' name='continue'/>
+					</div>
+				</fieldset>
+			</form>
+		</section>
+	</div>
+	<div id='footerWrap'>
+		<div id='footer'>
+			<div id='upper'>
+				<ul class='wide_ul'>
+					<li>
+						<b class='white_bold'>about me</b>
+					</li>
+					<li class='padding_bottom0'>
+						<span class='intro'>Currently working at <a  href='https://www.greenart.co.kr/' title='greencomputer link' class='orange'>GreenComputer</a> as a Frontend Developer on visualizing Team. Our mission is to guide customers improve their experience through comfortable feeling.</span>
+					</li>
+					<li>
+						<span><img src='imgs/hyeongjunKim.jpg' alt='hyeongjunKim'/></span>
+					</li>
+				</ul>
+				<div class='narrow_div'>
+					<h4><b class='white_bold'>navigations</b></h4>
+					<ul>
+						<li>
+							<a href='#' title='#'>Home</a>
+						</li>
+						<li>
+							<a href='portfolio.html' title='#'>Portfolio</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Lab</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Blog</a>
+						</li>
+						<li>
+							<a href='#' title='#'>About</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Newsroom</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Contact</a>
+						</li>
+					</ul>
+				</div>
+				<ul class='contact'>
+					<li>
+						<span class='white_bold'>contact</span>
+					</li>
+					<li class='position'>
+						<img src='imgs/compass.jpg' alt='compass'/>
+						<span class='karla'>Seoul, Korea</span>
+					</li>
+					<li class='position'>
+						<img src='imgs/mailbox.jpg' alt='mailbox'/>
+						<a class='karla' href='#' title='mymail'>hyeongjunk05@gmail.com</a>
+					</li>
+					<li class='white_bold'>
+						<a href='https://mail.google.com/mail/u/0/#inbox' title='sendmailtome'>send message</a>
+					</li>
+				</ul>
+				<div class='follow_me'>
+					<h4><b class='white_bold'>follow me here</b></h4>
+					<ul>
+						<li>
+							<a href='https://www.linkedin.com/in/hyeongjunk05/?fbclid=IwAR2nyw3YXVYBHrK7oCgpbZBtQlPnra0ffNZW8ksXOPQkQtAuWnT7a0gPo-E' title='linkedIn'>
+								<img src='imgs/linked.png' alt='linkedIn'/>
+							</a>
+						</li>
+						<li>
+							<a href='https://www.instagram.com/hyeongjunk05/' title='insta'>
+								<img src='imgs/insta.png' alt='insta'/>
+							</a>
+						</li>
+						<li class='top2px'>
+							<a href='https://www.facebook.com/hyeongjunk05' title='facebook'>
+								<img src='imgs/facebook.png' alt='facebook'/>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id='lower'>
+				<div>
+					<span>Made with love by Hyeongjun "HJ" Kim</span>
+					<span class='border_left'>Copyright 2019</span>
+				</div>
+				<p>
+					Download
+					<a href='https://www.facebook.com/hyeongjunk05' title='resume'>
+						<span>Resume</span>
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+  </div>
+ </body>
+</html>

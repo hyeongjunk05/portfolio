@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang='ko'>
+ <head>
+	<meta charset='utf-8'/>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0'/>
+	<link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <title>iPhone_Apple</title>
+  <!--안드로이드 버전-->
+  <link rel='shortcut icon' href='imgs/favicon.png'/><!--rel은 문서의 종류임. 우린 지금까지 stylesheet이었음.-->
+  <link rel='apple-touch-icon' href='imgs/favicon.png'/>
+  <style>
+	/*########## 초기화 ##########*/
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none;}
+
+	/*########## header ##########*/
+		#wrap{max-width:1920px; width:100%; margin:0 auto;}
+		#headerWrap{width:100%; border-bottom:1px solid #ccc; background-color:#373737;}
+		#header{width:1025px; height:120px; margin:0 auto; position:relative;}
+		h1{width:40px; position:absolute; top:20px;}
+		h1 a img{width:100%;}
+		h1:hover a img{transform:scale(1.2,1.2);}
+		#mobHeader{display:none;}
+	
+	/*########## topMenu ##########*/
+		#topMenu{width:100%; height:18px; font-size:11px;}
+		
+	/*########## infoMenu ##########*/
+		#topMenu a{color:#bbb; padding-left:10px;}
+		#topMenu ul{width:100%; height:100%; text-align:right;}
+
+		#topMenu li{display:inline;}
+		#topMenu li a:hover{color:#888;}
+
+
+	/*########## gnb ##########*/
+		#gnb{width:100%; height:80px; margin-top:10px; font-size:14px; 
+		overflow:hidden;}
+		#gnb ul{float:left;}
+		#gnb li{display:inline;}
+
+	/*########## gnb의 search ##########*/
+		#gnb #search{width:100%; height:21px; margin-top:10px; margin-left:745px;}
+		fieldset{width:100%; border:none;}
+		fieldset p{float:left; display:inline;}
+		.input input{width:250px; height:17px;}
+		legend{display:none;}
+
+	
+	/*########## gnb gnb_shop ##########*/
+		#gnb #gnb_shop{width:600px; height:25px; font-size:15px; margin-top:25px; 
+		margin-right:50px;}
+		#gnb #gnb_shop a{color:#fff; padding-right:20px;}
+		#gnb #gnb_shop li:hover a{color:silver;}
+
+		/*### 돋보기 ###*/
+		#gnb .gnb_none{display:none;}
+
+
+	/*########## gnb gnb_service ##########*/
+		#gnb #gnb_service{width:370px; height:25px; font-size:14px; margin-top:25px; 
+		text-align:right;}
+		#gnb #gnb_service li{padding-right:20px;}
+		#gnb #gnb_service a{color:#ccc;}
+		#gnb #gnb_service a:hover{color:#999;}
+
+	/*########## container ##########*/
+		#container{width:100%;}
+	
+	/*########## visual ##########*/
+		#visual{width:100%; height:540px; overflow:hidden;}
+		#visual h2{width:1px; height:1px; line-height:0; text-indent:-9999px; overflow:hidden;}
+		#visual ul{width:100%;}
+		#visual ul li{width:100%; height:600px; background-image:url('imgs/index_slide0.jpg'); background-attachment:fixed;}
+
+	/*########## iPhone_itself ##########*/
+		#iPhone_Itself{width:1400px; margin:0 auto;}
+		#iPhone_Itself h3{margin:90px auto 30px; text-align:center; font-size:50px;}
+
+		#iPhone_Itself .iPhone_Itself_div1{width:1200px; height:400px; margin:0 auto; background-image:url('imgs/iphone_back_0.jpg'); text-align:center; overflow:hidden;}
+		#iPhone_Itself h4{color:#fff; font-size:28px;}
+		#iPhone_Itself .iPhone_Itself_div1 h4{margin-top:120px;}
+		#iPhone_Itself .iPhone_Itself_div1 span{font-size:13px;}
+		#iPhone_Itself p{width:100%; color:#fff; font-size:48px; font-weight:600; font-family:"SF Pro KR","SF Pro Display","SF Pro Icons","Apple Gothic","HY Gulim","MalgunGothic","HY Dotum","Lexi Gulim","Helvetica Neue","Helvetica","Arial",sans-serif;}
+		#iPhone_Itself p a{color:#fff; font-size:21px; font-weight:400;}
+		#iPhone_Itself p a:hover{text-decoration:underline;}
+
+		#iPhone_Itself div {width:1200px; height:550px; margin:30px auto 0;}
+		#iPhone_Itself div li{width:48%; height:550px; background-repeat:no-repeat; float:left; background-color:#000; text-align:center;}
+		#iPhone_Itself div ul{width:100%; height:100%;}
+		#iPhone_Itself div .iPhone_Itself_li1{height:100%; background-image:url('imgs/iphone_1.jpg'); 
+		
+		background-position:center 180px; margin-right:4%;}
+		#iPhone_Itself div .iPhone_Itself_li2{height:100%; background-image:url('imgs/iphone_0.jpg'); background-position:82px 195px;}
+
+		#iPhone_Itself div li h4{color:#f5f5f7; margin:30px 0; font-size:48px; font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif; font-weight:600;}
+		#iPhone_Itself div li p{font-size:21px; font-weight:400;}
+		#iPhone_Itself div li p span{color:#2997FF;}
+
+	/*########## apple_card ##########*/
+		#apple_card{width:1200px; height:450px; padding-top:100px; margin:100px auto 0; background-color:#FAFAFA;}
+		#apple_card div{float:left;}
+		#apple_card #apple_card_right{padding-top:100px; padding-left:100px;}
+		#apple_card #apple_card_right span{display:block; font-size:21px; font-weight:400; font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;}
+
+	/*########## another_ppl ##########*/
+		#another_ppl{width:1025px; height:600px; padding-top:120px; margin:0 auto;}
+		#another_ppl h2{width:25%; height:300px; font-weight:300; font-size:40px; float:left; padding-top:55px;}
+		#another_ppl h2 span{font-weight:700;}
+		
+		#another_ppl h3{padding-bottom:50px; margin-right:10px; text-align:right;} 
+		#another_ppl a{display:block; width:150px; height:150px;}
+		#another_ppl a img{width:100%;}
+		#another_ppl section{width:68%; padding-left:7%; float:left;}
+		#another_ppl section li{margin:0 30px 50px 0; float:left;}
+		#another_ppl section .no_margin_right{margin-right:0;}
+		#another_ppl section h3{font-size:16px;}
+
+		#another_ppl:after{content:''; display:block; clear:both;}
+		
+
+	/*########## footer ##########*/
+		#footerWrap{width:100%; height:425px; background-color:#2F2F37;}
+		#footerWrap #footer{width:1400px; height:100%; margin:0 auto; overflow:hidden;}
+
+
+	/*########## footer_upper ##########*/
+		#upper{width:100%; height:350px;} 
+		#upper ul{width:18%; padding-right:5%; float:left;}
+		#upper .wide_ul{width:31%}
+		
+		.white_bold{display:block; padding:60px 0 25px; color:#fff; font-family:Oswald, sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; line-height:20px;}
+		.karla{font-family:Karla, sans-serif; font-size: 13px; line-height: 20px; color:#fff;}
+		.intro{color:hsla(0,0%,100%,.7); font-size:13px; line-height: 20px;}
+		.intro a.orange{color:#faaf52; text-decoration:underline;}
+		#upper .padding_bottom0{padding-bottom:30px;}
+		#upper .padding_bottom span{display:block; height:40px; padding-top:30px;}
+
+		#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+		#upper .narrow_div li{padding-bottom:13px; font-size:12px;}
+		#upper .narrow_div li a{color:hsla(0,0%,100%,.7);}
+		#upper .narrow_div li:hover a{text-decoration:underline; 
+		color:#fff;}
+
+		#upper .contact .position{position:relative;}
+		#upper .contact img{position:absolute; bottom:0; left:-3px;}
+		#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+		#upper .contact a:hover{text-decoration:underline; color:#fff;}
+		#upper li.white_bold{display:inline-block; width:85px; height:20px; padding-bottom:0; border-bottom:2px solid hsla(0,0%,100%,.7);}
+		#upper li.white_bold:hover{border-bottom:2px solid #fff;}
+		#upper li.white_bold a{color:#fff;}
+		#upper li.white_bold a:hover{text-decoration:none;}
+
+		#upper .follow_me{width:300px; float:left;}
+		#upper .follow_me ul{width:150px; height:33px; float:none;}
+		#upper .follow_me ul li{float:left; width:33px; height:100%;}
+		#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+		#upper .follow_me ul li a img{position:absolute; left:-8px;}
+		#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+		#upper .follow_me ul .top2px a img{top:2px;}
+
+	/*########## footer_lower ##########*/
+
+		#lower{width:100%; height:15px; padding:30px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:11px;}
+		#lower div{width:40%; float:left;}
+		#lower div span{padding-right:10px;}
+		#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+		#lower p {width:60%; text-align:right; float:left;}
+		#lower p a{color:hsla(0,0%,100%,.7);}
+		#lower p span{color:#fff;}
+		#lower p span:hover{text-decoration:underline; font-weight:700;}
+
+	
+	@media all and (min-width:768px) and (max-width:1025px){
+		
+			#wrap{max-width:1025px; width:100%; margin:0 auto;}
+
+		/*########## header ##########*/
+			#headerWrap{width:100%; border-bottom:1px solid #ccc; background-color:#373737;}
+			#header{width:768px; height:100px; margin:0 auto; position:relative;}
+			h1{width:40px; position:absolute; top:10px;}
+			h1 a {width:90%;}
+			h1 a img{width:100%;}
+			h1:hover a img{transform:scale(1.2,1.2);}
+			#mobHeader{display:none;}
+
+		/*########## gnb ##########*/
+			#gnb{margin-top:0px;}
+
+		/*########## gnb의 search ##########*/
+			#gnb #search{height:21px; margin-top:10px; margin-left:490px;}
+	
+		/*########## gnb gnb_shop ##########*/
+			#gnb #gnb_shop{width:65%; margin-right:0px;}
+
+
+
+		/*########## gnb gnb_service ##########*/
+			#gnb #gnb_service{width:35%;}
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%;}
+
+			#footer:after{content:''; display:block; clear:both;}
+		
+		/*########## footer_upper ##########*/
+			#upper{width:94%; height:350px; padding:0 3%;} 
+			#upper ul{width:27%; padding-right:3%; float:left;}
+			#upper .wide_ul{width:34%;}
+
+			#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+
+			#upper .follow_me{width:15%; float:left;}
+
+		/*########## footer_lower ##########*/
+
+			#lower{width:100%; height:100%; padding:15px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:70%; padding-left:3%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:24%; padding-right:3%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+	}
+	
+	@media all and (min-width:480px) and (max-width:767px){
+		/*########## header ##########*/
+			#wrap{max-width:767px; width:100%; margin:0 auto;}
+			#header{display:none;}
+			#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative;}
+			#mobHeader div{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+			#mobHeader div p{width:32px; height:30px; margin:0 auto;}
+			#mobHeader div span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+			#mobHeader div .no_margin{margin-right:0;}
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+			#footer:after{content:''; display:block; clear:both;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:92%; height:100%; padding:0 4%;} 
+			#upper ul{width:100%; float:none;}
+			#upper .wide_ul{width:100%;}
+			#upper .wide_ul b{padding-top:20px;}
+
+			#upper .narrow_div{display:none;}
+			
+			#upper .contact{width:60%; height:123px; float:left;}
+			#upper .contact .white_bold{padding:20px 0 10px;}
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:none;}
+
+			#upper .follow_me{width:35%; height:75px; float:left;}
+			#upper .follow_me h4{width:100%; height:73%;}
+			#upper .follow_me b{padding-top:25px;}
+			#upper .follow_me ul{width:150px; height:40%; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+			#upper:after{content:''; display:block; clear:both;}
+		/*########## footer_lower ##########*/
+
+			#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:73%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:20%; padding-right:7%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+	}
+
+	@media all and (min-width:320px) and (max-width:479px){
+		/*########## header ##########*/
+			#wrap{max-width:479px; width:100%; margin:0 auto;}
+			#header{display:none;}
+			#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative;}
+			#mobHeader div{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+			#mobHeader div p{width:32px; height:30px; margin:0 auto;}
+			#mobHeader div span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+			#mobHeader div .no_margin{margin-right:0;}
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+			#footer:after{content:''; display:block; clear:both;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:95%; height:100%; padding-left:5%;} 
+			#upper ul{width:100%; float:none;}
+			#upper .wide_ul{display:none;}
+
+			#upper .narrow_div{display:none; float:none;}
+			
+			#upper .contact .white_bold{padding:20px 0 10px;}
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:none;}
+
+			#upper .follow_me{width:100%; height:75px; float:none;}
+			#upper .follow_me h4{width:100%; height:73%;}
+			#upper .follow_me b{padding-top:25px;}
+			#upper .follow_me ul{width:150px; height:40%; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+			#upper:after{content:''; display:block; clear:both;}
+		/*########## footer_lower ##########*/
+
+			#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:100%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {display:none;}
+	}
+  </style>
+ </head>
+	
+ <body>
+	<div id='wrap'>
+		<div id='headerWrap'>
+			<header id='header'>
+				<h1>
+					<a href='index.html' title='appleHP'>
+						<img src='imgs/apple_logo.png' alt='apple logo'/>
+					</a>
+				</h1>
+				<div id='topMenu'>
+					<ul id='infoMenu'>
+						<li>
+							<a href='login.html' title='Log in'>
+								Log in
+							</a>
+							<a href='signup.html' title='Sign Up'>
+								Sign Up
+							</a>
+							<a href='http://www.gundamshop.co.kr/' title='My Page'>
+								My Page
+							</a>
+						
+							<a href='http://www.gundamshop.co.kr/' title='Cart'>
+								Cart
+							</a>
+							<a href='http://www.gundamshop.co.kr/' title='Order/Delivery'>
+								Order/Delivery
+							</a>
+							<a href='http://www.gundamshop.co.kr/' title='A/S'>
+								A/S
+							</a>
+							<a href='http://www.gundamshop.co.kr/' title='appleCafe'>
+								Apple Cafe
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id='gnb'>
+					<div id='search'>
+						<form action='#' method='get'>
+							<fieldset>
+								<legend>검색</legend>
+								<p class='input'>
+									<label for='text'></label><input id='text' type='text' name='text'/>
+								</p>
+								<p class='btn'>
+									<a href='#' title='search button'>
+										<img src='imgs/srchBtn_V2.png' alt='button image'/>
+									</a>
+								</p>
+							</fieldset>
+						</form>
+					</div>
+					<ul id='gnb_shop'>
+						<li>
+							<a href='mac_apple.html' title='Mac'>
+								Mac
+							</a>
+						</li>
+						<li>
+							<a href='iPad_apple.html' title='iPad'>
+								iPad
+							</a>
+						</li>
+						<li>
+							<a href='iPhone_apple.html' title='iPhone'>
+								iPhone
+							</a>
+						</li>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='Watch'>
+								Watch
+							</a>
+						</li>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='Music'>
+								Music
+							</a>
+						</li>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='Customer Service'>
+								Customer Service
+							</a>
+						</li>
+						<li class="gnb_none">
+							<a href='http://www.gundamshop.co.kr/' title='디자인용품ㆍ소품'>
+								<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+							</a>
+						</li>
+						<li class="gnb_none">
+							<a href='http://www.gundamshop.co.kr/' title='디자인용품ㆍ소품'>
+								<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+							</a>
+						</li>
+					</ul>
+					<ul id='gnb_service'>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='Best'>
+								Best
+							</a>
+						</li>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='New'>
+								New
+							</a>
+						</li>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='Hot Issue'>
+								Hot Issue
+							</a>
+						</li>
+						<li>
+							<a href='http://www.gundamshop.co.kr/' title='In Sale'>
+								In Sale
+							</a>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<div id='mobHeader'>
+				<a href='index.html' title='apple_homepage'>
+					<img src='imgs/logo_signup.svg' alt='apple logo'/>
+				</a>
+				<div>
+					<p>
+						<span></span><span class='no_margin'></span>
+						<span></span><span class='no_margin'></span>
+						<span></span><span class='no_margin'></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id='container'>
+			<section id='visual'>
+				<h2>visual</h2>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+			<section id='iPhone_Itself'>
+				<h3>iPhone, why iPhone?</h3>
+				<div class='iPhone_Itself_div1'>
+					<h4>iOS 13</h4>
+					<p>
+						Totally New Shape, New Dimension
+					</p>
+					<p>
+						<a href='#' title='learn more about iPhone'>
+							more
+						</a>
+						<span>&gt;</span>
+					</p>
+				</div>
+				<div>
+					<ul>
+						<li class='iPhone_Itself_li1'>
+							<h4>the reason WHY iPhone</h4>
+							<p>
+								incomparable iPhone.
+							</p>
+							<p>
+								<a href='#' title='more'>
+									<span>
+										more &gt;
+									</span>
+								</a>
+							</p>
+						</li>
+						<li class='iPhone_Itself_li2'>
+							<h4>the reason WHY iPhone</h4>
+							<p>
+								incomparable iPhone.
+							</p>
+							<p>
+								<a href='#' title='more'>
+									<span>
+										more &gt;
+									</span>
+								</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<div id='apple_card'>
+				<div id='apple_card_left'>
+					<img src='imgs/iPhone_card.jpg' alt='apple_card_logo'/>
+				</div>
+				<div id='apple_card_right'>
+					<p>
+						<img src='imgs/apple_pay_logo.png' alt='apple_card_logo'/>
+					</p>
+					<span>
+						A new kind of credit card.<br/>
+						Created by Apple, not a bank.
+					</span>
+				</div>
+			</div>
+			<section id='another_ppl'>
+				<h2>
+					Now<br/> These Items<br/> are <span>HOT!!!</span>
+				</h2>
+				<section>
+					<h3>Hot</h3>
+					<ul>
+						<li>
+							<a href='#' title='#'>
+								<img src='imgs/mac8.jpeg' alt='#'/>
+							</a>
+						</li>
+						<li>
+							<a href='#' title='#'>
+								<img src='imgs/mac4.jpeg' alt='#'/>
+							</a>
+						</li>
+						<li>
+							<a href='#' title='#'>
+								<img src='imgs/another_ppl0.jpg' alt='#'/>
+							</a>
+						</li>
+						<li class='no_margin_right'>
+							<a href='#' title='#'>
+								<img src='imgs/another_ppl1.jpg' alt='#'/>
+							</a>
+						</li>
+						<li>
+							<a href='#' title='#'>
+								<img src='imgs/another_ppl2.jpg' alt='#'/>
+							</a>
+						</li>
+						<li>
+							<a href='#' title='#'>
+								<img src='imgs/another_ppl3.jpg' alt='#'/>
+							</a>
+						</li>
+						<li>
+							<a href='#' title='#'>
+								<img src='imgs/another_ppl4.jpg' alt='#'/>
+							</a>
+						</li>
+						<li class='no_margin_right'>
+							<a href='#' title='#'>
+								<img src='imgs/another_ppl5.jpg' alt='#'/>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+			
+		</div>
+
+		<div id='footerWrap'>
+			<div id='footer'>
+				<div id='upper'>
+					<ul class='wide_ul'>
+						<li>
+							<b class='white_bold'>about me</b>
+						</li>
+						<li class='padding_bottom0'>
+							<span class='intro'>Currently working at <a  href='https://www.greenart.co.kr/' title='greencomputer link' class='orange'>GreenComputer</a> as a Frontend Developer on visualizing Team. Our mission is to guide customers improve their experience through comfortable feeling.</span>
+						</li>
+						<li>
+							<span><img src='imgs/hyeongjunKim.jpg' alt='hyeongjunKim'/></span>
+						</li>
+					</ul>
+					<div class='narrow_div'>
+						<h4><b class='white_bold'>navigations</b></h4>
+						<ul>
+							<li>
+								<a href='#' title='#'>Home</a>
+							</li>
+							<li>
+								<a href='portfolio.html' title='#'>Portfolio</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Lab</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Blog</a>
+							</li>
+							<li>
+								<a href='#' title='#'>About</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Newsroom</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Contact</a>
+							</li>
+						</ul>
+					</div>
+					<ul class='contact'>
+						<li>
+							<span class='white_bold'>contact</span>
+						</li>
+						<li class='position'>
+							<img src='imgs/compass.jpg' alt='compass'/>
+							<span class='karla'>Seoul, Korea</span>
+						</li>
+						<li class='position'>
+							<img src='imgs/mailbox.jpg' alt='mailbox'/>
+							<a class='karla' href='#' title='mymail'>hyeongjunk05@gmail.com</a>
+						</li>
+						<li class='white_bold'>
+							<a href='https://mail.google.com/mail/u/0/#inbox' title='sendmailtome'>send message</a>
+						</li>
+					</ul>
+					<div class='follow_me'>
+						<h4><b class='white_bold'>follow me here</b></h4>
+						<ul>
+							<li>
+								<a href='https://www.linkedin.com/in/hyeongjunk05/?fbclid=IwAR2nyw3YXVYBHrK7oCgpbZBtQlPnra0ffNZW8ksXOPQkQtAuWnT7a0gPo-E' title='linkedIn'>
+									<img src='imgs/linked.png' alt='linkedIn'/>
+								</a>
+							</li>
+							<li>
+								<a href='https://www.instagram.com/hyeongjunk05/' title='instagram'>
+									<img src='imgs/insta.png' alt='insta'/>
+								</a>
+							</li>
+							<li class='top2px'>
+								<a href='https://www.facebook.com/hyeongjunk05' title='facebook'>
+									<img class='top0' src='imgs/facebook.png' alt='facebook'/>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id='lower'>
+					<div>
+						<span>Made with love by Hyeongjun "HJ" Kim</span>
+						<span class='border_left'>Copyright 2019</span>
+					</div>
+					<p>
+						Download
+						<a href='https://www.facebook.com/hyeongjunk05' title='resume'>
+							<span>Resume</span>
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
+
+

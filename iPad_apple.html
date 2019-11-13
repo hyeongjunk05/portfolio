@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>iPad_apple</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0'/>
+ <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+ <meta charset='utf-8'/> 
+	<!--안드로이드 버전-->
+  <link rel='shortcut icon' href='imgs/favicon.png'/><!--rel은 문서의 종류임. 우린 지금까지 stylesheet이었음.-->
+  <link rel='apple-touch-icon' href='imgs/favicon.png'/>
+  <style>
+		/*######### 초기화 #########*/
+			*{margin:0; padding:0;}
+			li{list-style:none;}
+			a:link, a:visited{text-decoration:none;}
+
+			body,header,div,section,footer,address,p,ul,ol,dl,dl dt, ul li, ol li{margin:0; padding:0;}
+			body,header,div,section,footer,address,p,ul,ol,dl,dl dt, ul li, ol li{display:block;}
+
+			#wrap{width:100%; margin:0 auto; background-color:#dedede;}
+			#wrap:after{content:''; display:block; clear:both;}
+		/*########## header ##########*/
+			#wrap{width:100%; margin:0 auto;}
+			#headerWrap{width:100%; border-bottom:1px solid #ccc; background-color:#373737;}
+			#header{width:1025px; height:120px; margin:0 auto; position:relative;}
+			h1{width:40px; position:absolute; top:20px;}
+			h1 a img{width:100%;}
+			h1:hover a img{transform:scale(1.2,1.2);}
+			#mobHeader{display:none;}
+	
+		/*########## topMenu ##########*/
+			#topMenu{width:100%; height:18px; font-size:11px;}
+			
+		/*########## infoMenu ##########*/
+			#topMenu a{color:#bbb; padding-left:10px;}
+			#topMenu ul{width:100%; height:100%; text-align:right;}
+
+			#topMenu li{display:inline;}
+			#topMenu li a:hover{color:#888;}
+
+
+		/*########## gnb ##########*/
+			#gnb{width:100%; height:80px; margin-top:10px; font-size:14px; 
+			overflow:hidden;}
+			#gnb ul{float:left;}
+			#gnb li{display:inline;}
+
+		/*########## gnb의 search ##########*/
+			#gnb #search{width:100%; height:21px; margin-top:10px; margin-left:745px;}
+			fieldset{width:100%; border:none;}
+			fieldset p{float:left; display:inline;}
+			.input input{width:250px; height:17px;}
+			legend{display:none;}
+
+		
+		/*########## gnb gnb_shop ##########*/
+			#gnb #gnb_shop{width:600px; height:25px; font-size:15px; margin-top:25px; 
+			margin-right:50px;}
+			#gnb #gnb_shop a{color:#fff; padding-right:20px;}
+			#gnb #gnb_shop li:hover a{color:silver;}
+
+			/*### 돋보기 ###*/
+			#gnb .gnb_none{display:none;}
+
+
+		/*########## gnb gnb_service ##########*/
+			#gnb #gnb_service{width:370px; height:25px; font-size:14px; margin-top:25px; 
+			text-align:right;}
+			#gnb #gnb_service li{padding-right:20px;}
+			#gnb #gnb_service a{color:#ccc;}
+			#gnb #gnb_service a:hover{color:#999;}
+				
+			
+			#container{width:100%;}
+
+		/*######### iPad_wide #########*/
+
+			#iPad_wide{width:100%; height:707px; background-image:url('imgs/apple_iPad_wide0.jpg'); background-repeat:no-repeat; background-position:center; background-size:907px; background-color:#fff;}
+			#iPad_wide h2{width:1px; height:1px; line-height:0; text-indent:-9999px; overflow:hidden;}
+
+		/*######### iPad_essentials #########*/
+
+			#iPad_essentialsWrap{width:100%;}
+			#iPad_essentials{width:80%; margin:130px auto; text-align:center;}
+			#iPad_essentials h2{padding-bottom:80px; font-size:50px; font-family:'arial', sans-serif;}
+			#iPad_essentials div{width:40%; padding:0 4%; height:607px; float:left; background-position:center; background-repeat:no-repeat; background-color:#fff; font-size:20px;}
+			#iPad_essentials .iPad_essentials_div0{background-image:url('imgs/apple_essential0.jpg'); margin-right:30px; margin-bottom:50px; background-position:center bottom; background-size:600px; }
+			#iPad_essentials .iPad_essentials_div1{background-image:url('imgs/apple_essential1.jpg'); margin-bottom:50px; background-position:center top; background-size:500px;}
+			#iPad_essentials .iPad_essentials_div2{background-image:url('imgs/apple_essential2.jpg'); margin-right:30px; background-position:center bottom; background-size:550px;}
+			#iPad_essentials .iPad_essentials_div3{background-image:url('imgs/apple_essential3.jpg'); background-color:black; background-size:65%; background-position:center 300px; color:#fff;}
+
+			#iPad_essentials div h3{font-size:43px; padding:40px 0 23px; font-weight:900;}
+			#iPad_essentials .iPad_essentials_div1 h3{padding-top:420px;}
+
+			#iPad_essentials div p{padding-bottom:20px;}
+			#iPad_essentials div a{color:#0070CF;}
+			#iPad_essentials .iPad_essentials_div3 a{color:#5CB5FF;}
+			#iPad_essentials div a:hover{text-decoration:underline;}
+
+			#iPad_essentials:after{content:''; display:block; clear:both;}
+			/*ps)slideUp과 slideDown을 섞어서 쓴게 결국 accordion임*/
+
+		/*######### iPad_more #########*/
+			#iPad_moreWrap{width:100%;}
+			#iPad_more{width:80%; margin:0 auto; text-align:center;}
+			#iPad_more h2{height:50px; padding:130px 0 80px; font-size:50px; font-family:'arial', sans-serif;}
+			#iPad_more div{width:100%; height:650px; margin-bottom:40px; background-repeat:no-repeat;}
+			#iPad_more div p{color:#fff; font-size:21px; padding:5% 0;}
+			#iPad_more div a{color:#49BBFF; font-size:22px;}
+			#iPad_more div a:hover{text-decoration:underline;}
+			
+			#iPad_more .iPad_more_div0{background-image:url('imgs/apple_iPad_more0.jpg'); background-color:#000; background-position:right center; background-size:50%;}
+			.iPad_more_div0 section{width:350px; height:300px; padding-top:15%; padding-left:10%;}
+			
+			#iPad_more .iPad_more_div1{width:48%; background-image:url('imgs/apple_iPad_more1.jpg'); 
+			float:left; margin-right:30px; background-position:center; background-size:800px;}
+			
+			#iPad_more .iPad_more_div1 section, 
+			#iPad_more .iPad_more_div2 section{padding-top:50px;}
+
+			#iPad_more .iPad_more_div2{width:48%; background-image:url('imgs/apple_iPad_more2.jpg'); background-position:center; background-size:800px; float:right;}
+
+			#iPad_more:after{content:''; display:block; clear:both;}
+
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:425px; background-color:#2F2F37;}
+			#footerWrap #footer{width:1400px; height:100%; margin:0 auto; overflow:hidden;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:100%; height:350px;} 
+			#upper ul{width:18%; padding-right:5%; float:left;}
+			#upper .wide_ul{width:31%}
+			
+			.white_bold{display:block; padding:60px 0 25px; color:#fff; font-family:Oswald, sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; line-height:20px;}
+			.karla{font-family:Karla, sans-serif; font-size: 13px; line-height: 20px; color:#fff;}
+			.intro{color:hsla(0,0%,100%,.7); font-size:13px; line-height: 20px;}
+			.intro a.orange{color:#faaf52; text-decoration:underline;}
+			#upper .padding_bottom0{padding-bottom:30px;}
+			#upper .padding_bottom span{display:block; height:40px; padding-top:30px;}
+
+			#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+			#upper .narrow_div li{padding-bottom:13px; font-size:12px;}
+			#upper .narrow_div li a{color:hsla(0,0%,100%,.7);}
+			#upper .narrow_div li:hover a{text-decoration:underline; 
+			color:#fff;}
+
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:inline-block; width:85px; height:20px; padding-bottom:0; border-bottom:2px solid hsla(0,0%,100%,.7);}
+			#upper li.white_bold:hover{border-bottom:2px solid #fff;}
+			#upper li.white_bold a{color:#fff;}
+			#upper li.white_bold a:hover{text-decoration:none;}
+
+			#upper .follow_me{width:300px; float:left;}
+			#upper .follow_me ul{width:150px; height:33px; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+		/*########## footer_lower ##########*/
+
+			#lower{width:100%; height:15px; padding:30px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:11px;}
+			#lower div{width:40%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:60%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+
+
+		@media all and (min-width:768px) and (max-width:953px){
+			/*########## header ##########*/
+				#headerWrap{width:100%; border-bottom:1px solid #ccc; background-color:#373737;}
+				#header{width:768px; height:100px; margin:0 auto; position:relative;}
+				h1{width:40px; position:absolute; top:10px;}
+				h1 a {width:90%;}
+				h1 a img{width:100%;}
+				h1:hover a img{transform:scale(1.2,1.2);}
+				#mobHeader{display:none;}
+
+			/*########## gnb ##########*/
+			#gnb{margin-top:0px;}
+
+			/*########## gnb의 search ##########*/
+				#gnb #search{height:21px; margin-top:10px; margin-left:490px;}
+		
+			/*########## gnb gnb_shop ##########*/
+				#gnb #gnb_shop{width:65%; margin-right:0px;}
+
+
+
+			/*########## gnb gnb_service ##########*/
+				#gnb #gnb_service{width:35%;}
+			
+			/*######### iPad_wide #########*/
+
+				#iPad_wide{height:547px; background-size:607px;}
+
+			/*######### iPad_essentials #########*/
+
+				#iPad_essentials{width:80%; margin:80px auto;}
+				#iPad_essentials h2{padding-bottom:80px; font-size:42px; font-family:'arial', sans-serif;}
+				#iPad_essentials div{width:40%; padding:0 4%; height:465px; float:left; background-position:center; background-repeat:no-repeat; background-color:#fff; font-size:15px;}
+				#iPad_essentials .iPad_essentials_div0{margin-right:13px; margin-bottom:50px; background-position:center bottom; background-size:500px;}
+				#iPad_essentials .iPad_essentials_div1{margin-bottom:50px; background-size:460px;}
+				#iPad_essentials .iPad_essentials_div2{margin-right:13px; background-size:500px;}
+
+				#iPad_essentials div h3{font-size:37px; padding:25px 0 18px;}
+				#iPad_essentials .iPad_essentials_div1 h3{padding-top:320px;}
+				#iPad_essentials div p{padding-bottom:20px;}
+
+			/*######### iPad_more #########*/
+				#iPad_moreWrap{width:768px; margin:0 auto;}
+				#iPad_more{width:99%; margin:0 auto;}
+				#iPad_more h2{height:50px; padding:60px 0 40px; font-size:42px;}
+				#iPad_more div{height:380px; margin-bottom:40px;}
+				#iPad_more div p{font-size:16px; padding:2% 0;}
+				#iPad_more div a{font-size:15px;}
+				
+				.iPad_more_div0 section{height:300px; padding-top:18%; padding-left:0%;}
+				
+				#iPad_more .iPad_more_div1{margin-right:13px; background-size:600px;}
+				
+				#iPad_more .iPad_more_div1 section, 
+				#iPad_more .iPad_more_div2 section{padding-top:20px;}
+
+				#iPad_more .iPad_more_div2{background-size:600px;}
+
+			/*########## footer ##########*/
+				#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+				#footerWrap #footer{width:100%; height:100%;}
+
+				#footer:after{content:''; display:block; clear:both;}
+		
+			/*########## footer_upper ##########*/
+				#upper{width:94%; height:350px; padding:0 3%;} 
+				#upper ul{width:27%; padding-right:3%; float:left;}
+				#upper .wide_ul{width:34%;}
+
+				#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+
+				#upper .follow_me{width:15%; float:left;}
+
+			/*########## footer_lower ##########*/
+
+				#lower{width:100%; height:100%; padding:15px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+				#lower div{width:70%; padding-left:3%; float:left;}
+				#lower div span{padding-right:10px;}
+				#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+				#lower p {width:24%; padding-right:3%; text-align:right; float:left;}
+				#lower p a{color:hsla(0,0%,100%,.7);}
+				#lower p span{color:#fff;}
+				#lower p span:hover{text-decoration:underline; font-weight:700;}
+		}
+
+		@media all and (min-width:480px) and (max-width:767px){
+			/*########## header ##########*/
+				#wrap{max-width:767px; width:100%; margin:0 auto;}
+				#header{display:none;}
+				#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative;}
+				#mobHeader div{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+				#mobHeader div p{width:32px; height:30px; margin:0 auto;}
+				#mobHeader div span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+				#mobHeader div .no_margin{margin-right:0;}
+			
+			/*######### iPad_wide #########*/
+
+				#iPad_wide{height:450px; background-size:450px;}
+
+			/*######### iPad_essentials #########*/
+
+				#iPad_essentials{width:99%; margin:80px auto;}
+				#iPad_essentials h2{padding-bottom:80px; font-size:43px; font-family:'arial', sans-serif;}
+				#iPad_essentials div{width:100%; padding:0%; height:465px; float:left; background-position:center; background-repeat:no-repeat; background-color:#fff; font-size:15px;}
+				#iPad_essentials .iPad_essentials_div0{margin-right:13px; margin-bottom:50px; background-position:center bottom; background-size:400px;}
+				#iPad_essentials .iPad_essentials_div1{margin-bottom:50px; background-size:360px;}
+				#iPad_essentials .iPad_essentials_div2{margin-right:13px; margin-bottom:50px;}
+				#iPad_essentials .iPad_essentials_div3{background-size:40%; background-position:center 200px;}
+
+				#iPad_essentials div h3{font-size:37px; padding:25px 0 18px;}
+				#iPad_essentials .iPad_essentials_div1 h3{padding-top:320px;}
+				#iPad_essentials div p{padding-bottom:20px;}
+
+			/*######### iPad_more #########*/
+				#iPad_moreWrap{width:99%; margin:0 auto;}
+				#iPad_more{width:99%; margin:0 auto;}
+				#iPad_more h2{height:50px; padding:60px 0 40px; font-size:35px; font-weight:700;}
+				#iPad_more div{width:99%; margin:0 auto; height:380px; margin-bottom:40px;}
+				#iPad_more div p{font-size:16px; padding:2% 0;}
+				#iPad_more div a{font-size:15px;}
+				
+				.iPad_more_div0 section{width:170px; height:150px; padding-top:20%; padding-left:2%;}
+				
+				#iPad_more .iPad_more_div1{width:99%; margin:0 auto 40px; background-size:600px;}
+				
+				#iPad_more .iPad_more_div1 section, 
+				#iPad_more .iPad_more_div2 section{padding-top:20px;}
+
+				#iPad_more .iPad_more_div2{width:99%; margin:0 auto 40px; background-size:600px;}
+
+			/*########## footer ##########*/
+				#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+				#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+				#footer:after{content:''; display:block; clear:both;}
+
+
+			/*########## footer_upper ##########*/
+				#upper{width:92%; height:100%; padding:0 4%;} 
+				#upper ul{width:100%; float:none;}
+				#upper .wide_ul{width:100%;}
+				#upper .wide_ul b{padding-top:20px;}
+
+				#upper .narrow_div{display:none;}
+				
+				#upper .contact{width:60%; height:123px; float:left;}
+				#upper .contact .white_bold{padding:20px 0 10px;}
+				#upper .contact .position{position:relative;}
+				#upper .contact img{position:absolute; bottom:0; left:-3px;}
+				#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+				#upper .contact a:hover{text-decoration:underline; color:#fff;}
+				#upper li.white_bold{display:none;}
+
+				#upper .follow_me{width:35%; height:75px; float:left;}
+				#upper .follow_me h4{width:100%; height:73%;}
+				#upper .follow_me b{padding-top:25px;}
+				#upper .follow_me ul{width:150px; height:40%; float:none;}
+				#upper .follow_me ul li{float:left; width:33px; height:100%;}
+				#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+				#upper .follow_me ul li a img{position:absolute; left:-8px;}
+				#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+				#upper .follow_me ul .top2px a img{top:2px;}
+
+				#upper:after{content:''; display:block; clear:both;}
+			/*########## footer_lower ##########*/
+
+				#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+				#lower div{width:73%; float:left;}
+				#lower div span{padding-right:10px;}
+				#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+				#lower p {width:20%; padding-right:7%; text-align:right; float:left;}
+				#lower p a{color:hsla(0,0%,100%,.7);}
+				#lower p span{color:#fff;}
+				#lower p span:hover{text-decoration:underline; font-weight:700;}
+			
+		}
+
+		@media all and (min-width:320px) and (max-width:479px){
+			/*########## header ##########*/
+				#wrap{max-width:479px; width:100%; margin:0 auto;}
+				#header{display:none;}
+				#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative;}
+				#mobHeader div{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+				#mobHeader div p{width:32px; height:30px; margin:0 auto;}
+				#mobHeader div span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+				#mobHeader div .no_margin{margin-right:0;}
+			
+			/*######### iPad_wide #########*/
+
+				#iPad_wide{height:350px; background-size:300px;}
+
+			/*######### iPad_essentials #########*/
+
+				#iPad_essentials{width:99%; margin:80px auto;}
+				#iPad_essentials h2{padding-bottom:80px; font-size:32px; font-family:'arial', sans-serif;}
+				#iPad_essentials div{width:100%; padding:0%; height:465px; float:left; background-position:center; background-repeat:no-repeat; background-color:#fff; font-size:15px;}
+				#iPad_essentials .iPad_essentials_div0{margin-right:13px; margin-bottom:50px; background-position:center bottom; background-size:400px;}
+				#iPad_essentials .iPad_essentials_div1{margin-bottom:50px; background-size:360px;}
+				#iPad_essentials .iPad_essentials_div2{margin-right:13px; margin-bottom:50px;}
+				#iPad_essentials .iPad_essentials_div3{background-size:65%; background-position:center 200px;}
+
+				#iPad_essentials div h3{font-size:37px; padding:25px 0 18px;}
+				#iPad_essentials .iPad_essentials_div1 h3{padding-top:320px;}
+				#iPad_essentials div p{padding-bottom:20px;}
+
+			/*######### iPad_more #########*/
+				#iPad_moreWrap{width:99%; margin:0 auto;}
+				#iPad_more{width:99%; margin:0 auto;}
+				#iPad_more h2{height:50px; padding:60px 0 40px; font-size:25px; font-weight:700;}
+				#iPad_more div{width:99%; margin:0 auto; height:380px; margin-bottom:40px;}
+				#iPad_more div p{font-size:16px; padding:2% 0;}
+				#iPad_more div a{font-size:15px;}
+				
+				.iPad_more_div0 section{width:170px; height:150px; padding-top:20%; padding-left:2%;}
+				
+				#iPad_more .iPad_more_div1{width:99%; margin:0 auto 40px; background-size:600px;}
+				
+				#iPad_more .iPad_more_div1 section, 
+				#iPad_more .iPad_more_div2 section{padding-top:20px;}
+
+				#iPad_more .iPad_more_div2{width:99%; margin:0 auto 40px; background-size:600px;}
+		
+			
+			/*########## footer ##########*/
+				#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+				#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+				#footer:after{content:''; display:block; clear:both;}
+
+
+			/*########## footer_upper ##########*/
+				#upper{width:95%; height:100%; padding-left:5%;} 
+				#upper ul{width:100%; float:none;}
+				#upper .wide_ul{display:none;}
+
+				#upper .narrow_div{display:none; float:none;}
+				
+				#upper .contact .white_bold{padding:20px 0 10px;}
+				#upper .contact .position{position:relative;}
+				#upper .contact img{position:absolute; bottom:0; left:-3px;}
+				#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+				#upper .contact a:hover{text-decoration:underline; color:#fff;}
+				#upper li.white_bold{display:none;}
+
+				#upper .follow_me{width:100%; height:75px; float:none;}
+				#upper .follow_me h4{width:100%; height:73%;}
+				#upper .follow_me b{padding-top:25px;}
+				#upper .follow_me ul{width:150px; height:40%; float:none;}
+				#upper .follow_me ul li{float:left; width:33px; height:100%;}
+				#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+				#upper .follow_me ul li a img{position:absolute; left:-8px;}
+				#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+				#upper .follow_me ul .top2px a img{top:2px;}
+
+				#upper:after{content:''; display:block; clear:both;}
+			/*########## footer_lower ##########*/
+
+				#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+				#lower div{width:100%; float:left;}
+				#lower div span{padding-right:10px;}
+				#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+				#lower p {display:none;}
+		}
+
+	</style>
+ </head>
+
+ <body>
+  <div id='wrap'>
+	<div id='headerWrap'>
+		<header id='header'>
+			<h1>
+				<a href='index.html' title='appleHP'>
+					<img src='imgs/apple_logo.png' alt='apple logo'/>
+				</a>
+			</h1>
+			<div id='topMenu'>
+				<ul id='infoMenu'>
+					<li>
+						<a href='login.html' title='Log in'>
+							Log in
+						</a>
+						<a href='signup.html' title='Sign Up'>
+							Sign Up
+						</a>
+						<a href='http://www.gundamshop.co.kr/' title='My Page'>
+							My Page
+						</a>
+					
+						<a href='http://www.gundamshop.co.kr/' title='Cart'>
+							Cart
+						</a>
+						<a href='http://www.gundamshop.co.kr/' title='Order/Delivery'>
+							Order/Delivery
+						</a>
+						<a href='http://www.gundamshop.co.kr/' title='A/S'>
+							A/S
+						</a>
+						<a href='http://www.gundamshop.co.kr/' title='appleCafe'>
+							Apple Cafe
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id='gnb'>
+				<div id='search'>
+					<form id="ac-gn-searchform" action='https://www.apple.com/search' method='get' name='f'>
+						<fieldset>
+							<legend>검색</legend>
+							<p class='input'>
+								<input id='ac-gn-searchform-input' type='text' name='src' autocomplete='off' placeholder='Search apple.com' maxlength='150' title='Search'/>
+							</p>
+							<p class='btn'>
+								<a href='#' title='search button'>
+									<img src='imgs/srchBtn_V2.png' alt='button image'/>
+								</a>
+							</p>
+						</fieldset>
+					</form>
+				</div>
+				<ul id='gnb_shop'>
+					<li>
+						<a href='mac_apple.html' title='Mac'>
+							Mac
+						</a>
+					</li>
+					<li>
+						<a href='iPad_apple.html' title='iPad'>
+							iPad
+						</a>
+					</li>
+					<li>
+						<a href='iPhone_apple.html' title='iPhone'>
+							iPhone
+						</a>
+					</li>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='Watch'>
+							Watch
+						</a>
+					</li>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='Music'>
+							Music
+						</a>
+					</li>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='Customer Service'>
+							Customer Service
+						</a>
+					</li>
+					<li class="gnb_none">
+						<a href='http://www.gundamshop.co.kr/' title='디자인용품ㆍ소품'>
+							<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+						</a>
+					</li>
+					<li class="gnb_none">
+						<a href='http://www.gundamshop.co.kr/' title='디자인용품ㆍ소품'>
+							<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+						</a>
+					</li>
+				</ul>
+				<ul id='gnb_service'>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='Best'>
+							Best
+						</a>
+					</li>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='New'>
+							New
+						</a>
+					</li>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='Hot Issue'>
+							Hot Issue
+						</a>
+					</li>
+					<li>
+						<a href='http://www.gundamshop.co.kr/' title='In Sale'>
+							In Sale
+						</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<div id='mobHeader'>
+			<a href='index.html' title='apple_homepage'>
+				<img src='imgs/logo_signup.svg' alt='apple logo'/>
+			</a>
+			<div>
+				<p>
+					<span></span><span class='no_margin'></span>
+					<span></span><span class='no_margin'></span>
+					<span></span><span class='no_margin'></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id='container'>
+		<section id='iPad_wide'>
+			<h2>iPad_wide</h2>
+			<!--여기에 ipad pro 페이지처럼 스크롤 내리면 좌우로 화면 슬라이드처럼 변하는 기능으로 꾸미자.-->
+		</section>
+		<div id='iPad_essentialsWrap'>
+			<section id='iPad_essentials'>
+				<h2>iPad essentials</h2>
+				<div class='iPad_essentials_div0'>
+					<h3>Apple Pencil</h3>
+					<p>Dream it up. Jot it down.</p>
+					<a href='#none' title='Learn more'>Learn more&gt;</a> <a href='#none' title='Buy'>Buy&gt;</a>
+				</div>
+				<div class='iPad_essentials_div1'>
+					<h3>Apple Pencil</h3>
+					<p>Dream it up. Jot it down.</p>
+					<a href='#none' title='Learn more'>Learn more&gt;</a> <a href='#none' title='Buy'>Buy&gt;</a>
+				</div>
+				<div class='iPad_essentials_div2'>
+					<h3>Apple Pencil</h3>
+					<p>Dream it up. Jot it down.</p>
+					<a href='#none' title='Shop iPad accessories'>Shop iPad accessories&gt;</a>
+				</div>
+				<div class='iPad_essentials_div3'>
+					<h3>Apple Pencil</h3>
+					<p>Dream it up. Jot it down.</p>
+					<a href='#none' title='Learn more'>Learn more&gt;</a> <a href='#none' title='Buy'>Buy&gt;</a>
+				</div>
+			</section>
+		</div>
+		<div id='iPad_moreWrap'>
+			<section id='iPad_more'>
+				<h2>Performs like no other Pad</h2>
+				<div class='iPad_more_div0'>
+					<section>
+						<h3>
+							<img src='imgs/apple_iPad_more0_logo.png' alt='apple logo0'/>
+						</h3>
+						<p>Lights. Camera. iPad.
+						   Every new iPad comes with
+						   one year of Apple TV+.2
+						</p>
+						<a href='#none' title='Learn more'>Watch now on the Apple TV app&gt;</a>
+					</section>
+				</div>
+				<div class='iPad_more_div1'>
+					<section>
+						<h3>
+							<img src='imgs/apple_iPad_more1_logo.png' alt='apple logo1'/>
+						</h3>
+						<p>Dream it up. Jot it down.</p>
+						<a href='#none' title='Learn more'>Learn more&gt;</a> <a href='#none' title='Buy'>Buy&gt;</a>
+					</section>
+				</div>
+				<div class='iPad_more_div2'>
+					<section>
+						<h3>
+							<img src='imgs/apple_iPad_more2_logo.png' alt='apple logo2'/>
+						</h3>
+						<p>Dream it up. Jot it down.</p>
+						<a href='#none' title='Learn more'>Learn more&gt;</a> <a href='#none' title='Buy'>Buy&gt;</a>
+					</section>
+				</div>
+				<!--<div class='iPad_more_div3'>
+					<h3>
+						<img src='img/apple_iPad_more3.jpg' alt=''/>
+					</h3>
+					<p>Dream it up. Jot it down.</p>
+					<a href='#none' title='Learn more'>Learn more&gt;</a> <a href='#none' title='Buy'>Buy&gt;</a>
+				</div>
+				-->
+			</section>
+		</div>
+	</div>
+	<div id='footerWrap'>
+		<footer id='footer'>
+			<div id='upper'>
+				<ul class='wide_ul'>
+					<li>
+						<b class='white_bold'>about me</b>
+					</li>
+					<li class='padding_bottom0'>
+						<span class='intro'>Currently working at <a  href='https://www.greenart.co.kr/' title='greencomputer link' class='orange'>GreenComputer</a> as a Frontend Developer on visualizing Team. Our mission is to guide customers improve their experience through comfortable feeling.</span>
+					</li>
+					<li>
+						<span><img src='imgs/hyeongjunKim.jpg' alt='hyeongjunKim'/></span>
+					</li>
+				</ul>
+				<div class='narrow_div'>
+					<h4><b class='white_bold'>navigations</b></h4>
+					<ul>
+						<li>
+							<a href='#' title='#'>Home</a>
+						</li>
+						<li>
+							<a href='portfolio.html' title='#'>Portfolio</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Lab</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Blog</a>
+						</li>
+						<li>
+							<a href='#' title='#'>About</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Newsroom</a>
+						</li>
+						<li>
+							<a href='#' title='#'>Contact</a>
+						</li>
+					</ul>
+				</div>
+				<ul class='contact'>
+					<li>
+						<span class='white_bold'>contact</span>
+					</li>
+					<li class='position'>
+						<img src='imgs/compass.jpg' alt='compass'/>
+						<span class='karla'>Seoul, Korea</span>
+					</li>
+					<li class='position'>
+						<img src='imgs/mailbox.jpg' alt='mailbox'/>
+						<a class='karla' href='#' title='mymail'>hyeongjunk05@gmail.com</a>
+					</li>
+					<li class='white_bold'>
+						<a href='https://mail.google.com/mail/u/0/#inbox' title='sendmailtome'>send message</a>
+					</li>
+				</ul>
+				<div class='follow_me'>
+					<h4><b class='white_bold'>follow me here</b></h4>
+					<ul>
+						<li>
+							<a href='https://www.linkedin.com/in/hyeongjunk05/?fbclid=IwAR2nyw3YXVYBHrK7oCgpbZBtQlPnra0ffNZW8ksXOPQkQtAuWnT7a0gPo-E' title='linkedIn'>
+								<img src='imgs/linked.png' alt='linkedIn'/>
+							</a>
+						</li>
+						<li>
+							<a href='https://www.instagram.com/hyeongjunk05/' title='instagram'>
+								<img src='imgs/insta.png' alt='insta'/>
+							</a>
+						</li>
+						<li class='top2px'>
+							<a href='https://www.facebook.com/hyeongjunk05' title='facebook'>
+								<img class='top0' src='imgs/facebook.png' alt='facebook'/>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id='lower'>
+				<div>
+					<span>Made with love by Hyeongjun "HJ" Kim</span>
+					<span class='border_left'>Copyright 2019</span>
+				</div>
+				<p>
+					Download
+					<a href='https://www.facebook.com/hyeongjunk05' title='resume'>
+						<span>Resume</span>
+					</a>
+				</p>
+			</div>
+		</footer>
+	</div>
+  </div>
+ </body>
+</html>
+
