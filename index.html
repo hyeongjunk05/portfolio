@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>Apple</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0'/>
+ <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+ <meta charset='utf-8'/> 	
+  <link rel='shortcut icon' href='imgs/favicon.png'/>
+  <link rel='apple-touch-icon' href='imgs/favicon.png'/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src='js/jquery-ui.min.js'></script>
+  <script src='js/tabBasic_mobHeaderSlide.js'></script>
+  <script src='js/section_ad_opaque.js'></script>
+  
+  <style>	
+	/*########## 초기화 ##########*/
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none;}
+		a:hover, a:focus{}
+
+		body,div,header,footer,section,ul,ol,dl,dt,dd,li,p{margin:0; padding:0;}
+		header, nav, section, footer{display:block;}
+
+	/*######### 스킵네비게이션 ##########*/
+		#skipNav{width:10%; position:absolute; top:-60px; left:0;}
+		#skipNav p a{display:block; width:100%; background-color:#000;
+		text-align:center; line-height:30px; position:absolute; color:#fff;}
+		
+		#skipNav p a:focus{top:60px; color:#ff0;}
+
+
+	/*########## header ##########*/
+		#wrap{width:100%; margin:0 auto;}
+		#headerWrap{width:100%; background-color:rgba(55,55,55,0.9); position:fixed; top:0; z-index:1;}
+		#header{width:1025px; height:78px; margin:0 auto; position:relative;}
+		h1{width:32px; height:43px; position:absolute; top:7px; overflow:hidden; transition:all 2s;}
+		h1:hover{left:5px;}
+		h1 a img{width:100%; margin-top:-22px;}
+		#mobHeader{display:none;}
+		#mobMenu{display:none;}
+	
+	/*########## topMenu ##########*/
+		#topMenu{width:100%; height:18px; font-size:11px;}
+		
+	/*########## infoMenu ##########*/
+		#topMenu a{color:#9a9a9a; padding-left:10px;}
+		#topMenu ul{width:100%; height:100%; text-align:right;}
+
+		#topMenu li{display:inline;}
+		#topMenu li a:hover{color:#dedede; text-decoration:underline;}
+
+
+	/*########## gnb ##########*/
+		#gnb{width:100%; height:65px; font-size:14px; 
+		overflow:hidden;}
+		#gnb ul{float:left;}
+		#gnb li{display:inline;}
+
+	/*########## gnb의 search ##########*/
+		#gnb #search{width:27%; height:21px; margin-top:6px; margin-left:745px; overflow:hidden;}
+		fieldset{width:100%; border:none;}
+		fieldset p{float:left; display:inline; line-height:17px; vertical-align:bottom;}
+		.input input{width:250px; height:17.4px; text-indent:10px; border-radius:7px 0 0 7px; outline:none; border-bottom:2px solid #9a9a9a;}
+		legend{display:none;}
+		.btn{height:21px; border-radius:0 7px 7px 0; overflow:hidden;}
+		.btn img{width:92%;}
+
+	
+	/*########## gnb gnb_shop ##########*/
+		#gnb #gnb_shop{width:600px; height:25px; font-size:15px; margin-top:10px; 
+		margin-right:50px;}
+		#gnb #gnb_shop a{color:#ccc; padding-right:20px; transition:all .3s;}
+		#gnb #gnb_shop li:hover a{text-shadow:5px 5px 5px rgba(200,200,200,0.7); color:#fff;}
+
+		/*### 돋보기 ###*/
+		#gnb .gnb_none{display:none;}
+
+
+	/*########## gnb gnb_service ##########*/
+		#gnb #gnb_service{width:370px; height:25px; font-size:14px; margin-top:10px; 
+		text-align:right;}
+		#gnb #gnb_service li{padding-right:20px;}
+		#gnb #gnb_service a{color:#ccc;}
+		#gnb #gnb_service a:hover{color:#fff; border-radius:6px; background-image:-webkit-linear-gradient(left, #454545 30%, #565656); box-shadow:-4px 2px 0px #565656;}
+
+	/*########## container ##########*/
+		#container{width:100%;}
+		#mobContainer{display:none;}
+	
+	/*########## visual ##########*/
+		#visual{width:100%; height:800px; overflow:hidden;}
+		#visual ul{width:100%;}
+		#visual ul li{width:100%; position:relative;}
+		#visual img{position:absolute; left:-370px; top:0;}
+
+	/*########## iPhone_ad ##########*/
+		#iPhone_ad{width:100%; height:940px; text-align:center; line-height:1000px; background-color:#000; position:relative;}
+		#iPhone_ad img{width:1px; height:1px; transition:all 1s; position:absolute; left:200px;}
+		#iPhone_ad p{width:342px; height:645px; padding-top:100px; font-size:35px; font-weight:900; background: -moz-linear-gradient(-45deg,  rgba(30,87,153,1) 0%, rgba(89,148,202,1) 62%, rgba(95,154,207,0.7) 68%, rgba(125,185,232,0) 100%); background: -webkit-linear-gradient(-45deg,  rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%); background: linear-gradient(135deg,  rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%); position:absolute; border-radius:35px; top:9.5%; left:-529px; line-height:190px; transition:all 1s;}
+		#iPhone_ad span{display:block; height:80px; font-size:25px;}
+		#iPhone_ad .iPhone_ad_span{height:60px; line-height:30px; font-size:18px; font-weight:500; width:50%; margin:0 auto;}
+		#iPhone_ad a{display:block; margin:0 auto; height:80px;}
+		#iPhone_ad a span{font-size:20px; color:#0036ff;}
+		#iPhone_ad a span:hover{text-decoration:underline;}
+
+		#iPhone_ad div{width:400px; height:400px; color:#fff; position:absolute; top:100px; right:-1400px; line-height:35px; text-align:left; transition:all 1s;}
+		#iPhone_ad div span:first-child{font-size:40px; height:100px; font-weight:bold; letter-spacing:normal; margin-bottom:28px; line-height:100%;}
+		#iPhone_ad div .iPhone_ad_div_span2{height:200px; font-size:20px; font-weight:normal; letter-spacing:normal; font-family:'arial',sans-serif;}
+		#iPhone_ad div .iPhone_ad_div_a{display:block; width:140px; height:30px; text-transform:uppercase; padding:7px 0; font-weight:700; letter-spacing:1.7px; font-size:13px; text-align:center; background-color:transparent; color:#dedede; border-radius:29px; border:2px solid #ccc; font-family:'arial', sans-serif;}
+		#iPhone_ad div .iPhone_ad_div_a:hover{color:#222; border-color:#000; background: #e2e2e2;
+		background: -moz-linear-gradient(-45deg,  #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+		background: -webkit-linear-gradient(-45deg,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+		background: linear-gradient(135deg,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);}
+
+	/*########## section_ad ##########*/
+		#section_ad{width:100%; height:650px; background-color:#F8F8F8;}
+		#section_ad ul{width:1200px; height:100%; margin:0 auto;}
+		#section_ad h2{width:100%; padding:100px 0 30px; text-align:center; 
+		text-transform:uppercase; font-size:45px; letter-spacing:4px; font-family:Oswald,'arial',sans-serif;}
+		#section_ad h2:hover{text-shadow:4px 4px 8px #cdcdcd;}
+		#section_ad li{width:350px; height:400px; float:left; background-color:#fff; box-shadow:5px 5px 5px rgba(0,0,0,0.2); border-radius:30px;}
+		#section_ad li:hover{box-shadow:5px 5px 10px rgba(0,0,0,0.7);}
+		#section_ad .padding{margin:0 50px;}
+		#section_ad li a{display:block; padding-top:50px;}
+		#section_ad li a span{display:block; padding-top:20px; text-align:center;}
+		#section_ad li a span.whatblue{color:#1F66CC; font-weight:700;}
+		
+
+	/*########## section_Mac ##########*/
+		#section_Mac{width:100%; height:950px; background-color:#fff;}
+		#section_Mac h3{width:100%; padding:100px 0 30px; text-align:center; font-size:40px;}
+		#section_Mac h3:hover{text-shadow:4px 4px 4px rgba(100,100,100,0.4);}
+		#section_Mac ul{width:1167px; height:800px; padding-left:33px; margin:0 auto;}
+		#section_Mac ul li{width:260px; height:320px; margin-right:30px; float:left;}
+		.margin_top{margin-top:100px;}
+		#section_Mac a{display:block; width:260px; height:300px; position:relative; overflow:hidden;}
+		#section_Mac a img{width:260px;}
+		#section_Mac ul li:hover a span{color:#D86438;}
+		#section_Mac ul li:hover a img{transform:scale(1.2); transition:all 1s ease-in-out;}
+		#section_Mac a span{display:block; width:90px; height:40px; text-align:center; color:#1F66CC; font-weight:700; position:absolute; bottom:40px; left:90px;}
+
+	/*############ section_wide ###############*/
+		#section_wide{width:100%; height:650px; text-align:center;}
+		#section_wide iframe{width:100%; height:100%;}
+
+	/*########## section_iPad ##########*/
+		#section_iPad{width:100%; height:780px; background-color:#F8F8F8; overflow:hidden;}
+		#section_iPad #section_iPadWrap{width:1200px; height:100%; margin:80px auto;}
+		
+	/*########## section_iPad의 left ##########*/	
+		#left{width:25%; height:630px; background-color:#fff; position:relative; margin-right:36px; float:left;}
+		#left h2{width:90%; height:55px; margin:0 auto; line-height:55px; font-size:20px; margin-bottom:15px; border-bottom:1px solid #eee; text-indent:15px;}
+		#left p{position:absolute; right:20px; top:12px;}
+		
+		#left li{width:94%; height:90px; padding-bottom:5px; padding-left:6%;}
+		#left a{display:block; width:100%; color:#000; font-weight:600;}
+		#left a span{display:block; width:60px; height:85px; padding-right:25px; float:left; font-size:14px; overflow:hidden;}
+		#left a span.width{width:180px; height:30px; line-height:30px; padding-right:0; border-bottom:1px solid #ddd;}	
+		#left a img{width:100%;}
+		#left a .gray{color:#aaa; width:170px; height:26px; line-height:26px; padding-right:0; font-weight:500; white-space:nowrap; text-overflow:ellipsis;}
+
+	/*########## section_iPad의 right ##########*/
+		#right{width:72%; height:630px; float:left; background-color:#fff;}
+		
+		#right .newItem{width:98%; margin-left:2%; height:50px; margin-bottom:20px; border-bottom:1px solid #eee;}
+		#right h2{width:30%; height:50px; line-height:50px; float:left; text-indent:20px;}
+		#right .newItem ul{width:70%; height:50px; line-height:55px; float:left; text-align:right;}
+		#right .newItem li{display:inline;}
+		#right .newItem li a{font-weight:700; background-image:-webkit-linear-gradient(left,#fff,#efefef); font-size:14px; padding:0 10px; color:#bb0457; border-radius:7px;}
+
+		#right .newItemImg{width:97%; padding-left:3%; height:150px;}
+		#right .newItemImg ul{width:100%; height:100px;}
+		#right .newItemImg li{float:left; margin-right:100px;}
+		#right .newItemImg li:hover img{transform:scale(1.1);}
+		#right .newItemImg .no_margin{margin-right:0;}
+		#right .newItemImg li a{display:block;}
+		#right .newItemImg li a span{width:130px; display:block;}
+		#right .newItemImg li a span.border{height:40px; line-height:40px; border-bottom:1px solid #ccc; color:#000; font-size:14px; font-weight:600; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+		#right .newItemImg li a span.right{height:27px; line-height:27px; margin-bottom:25px; text-align:right; font-weight:700; font-size:13px;}
+		#right .newItemImg li a span img{width:100%;}
+
+
+	/*###### apple_MacWrap  ######*/	
+		
+		#apple_MacWrap{width:100%; margin:0 auto; background-color:#fff;}
+
+	
+	/*###### apple_MacInnerWrap  ######*/	
+		#apple_MacInnerWrap{width:1200px; height:430px; padding:30px; margin:0 auto;}
+
+		.apple_MacLeft{width:340px; height:330px; float:left; font-size:11px; background-color:#FFF; padding:50px;}
+		.apple_MacRight{width:755px; height:330px; float:left; background-color:#FFF; padding:50px 0;}
+		
+		/*###### apple_MacLeft  ######*/
+			.apple_MacLeft h2{padding:10px; font-size:12px;}
+			.apple_Mac_IssuePic{width:340px; height:130px; border:1px solid #D9E4EA; border-bottom:none;}
+			.apple_Mac_IssuePic li{width:130px; height:130px; float:left;}
+			.apple_Mac_IssuePic li a{display:block; width:90px; height:90px; margin:20px auto 0;}
+			.apple_Mac_IssuePic li a img{width:100%; height:100%;}
+			.apple_Mac_IssuePic .apple_Mac_IssueDesc{width:190px; height:90px; line-height:25px;}
+            .apple_Mac_IssuePic .apple_Mac_IssueDesc a{width:190px; height:50px; padding-top:40px; margin-top:0;}
+			.apple_Mac_IssuePic .apple_Mac_IssueDesc span{color:#777;}
+		
+			.apple_Mac_IssueItem{width:340px;}
+			.apple_Mac_IssueItem li{width:310px; height:30px; margin:0 auto; line-height:30px; border-bottom:1px solid #D9E4EA;}
+			.apple_Mac_IssueItem li p{float:right;}
+			.apple_Mac_IssueItem li p span{color:#777;}
+
+		/*###### apple_MacRight  ######*/
+			.apple_MacRight ul{width:97%; height:100%; margin:0 auto;}/*li 4개로 4등분하면 185px*/
+			.apple_MacRight ul li{width:180px; height:140px; padding-top:40px; float:left;}
+			.apple_MacRight ul li dl{width:100%; height:100%;}
+			.apple_MacRight ul li dl dt{width:150px; height:150px;}
+			.apple_MacRight ul li dl dt a{width:100%; height:100%;}
+			.apple_MacRight ul li dl dt a img{width:100%;}
+			.apple_MacRight ul li dl dd{width:150px; font-size:11px;}
+			.apple_MacRight ul li dl .dd_1{height:30px; padding:10px 0; border-bottom:1px solid #DAE5EB;}
+			.apple_MacRight ul li dl .dd_2{height:20px; color:#777; padding-top:5px;}
+
+		/*###### hot_Item  ######*/
+			#hot_Item{width:100%; height:140px; border-top:1px solid #C9D7E6; background-color:#F8F8F8;}
+		
+			/*####### hot_ItemAd  #######*/
+				.hot_ItemAd{width:1110px; height:126px; margin:0 auto;}
+				.hot_ItemAd ul{width:100%; height:100%;}
+				.hot_ItemAd li{width:370px; height:119px; padding-top:13px; float:left;}
+				.hot_ItemAd li h3{width:90px; height:90px; float:left;}
+				.hot_ItemAd li h3 a{display:block; width:90px; height:90px; float:left;}
+				.hot_ItemAd li h3 a img{width:80px; height:80px; background-color:pink;}
+				.hot_ItemAd li div{width:270px; height:126px; float:left;}
+				.hot_ItemAd li p{width:270px; height:60px; font-size:11px;}
+				.hot_ItemAd li .p1{width:100%; padding-top:20px; height:20px; border-bottom:1px solid #DAE5EB;  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+				.hot_ItemAd li .p2{padding-top:5px; height:55px;}
+
+
+		/*######## section_wide2 ########*/
+
+
+		/*###### issue_Mac  ######*/
+			#issue_Mac{width:100%; height:770px; padding-top:20px;}
+			#issue_Mac #issue_MacInnerWrap h2{font-size:16px; padding-bottom:40px; text-indent:20px;}
+			#issue_MacInnerWrap{width:1110px; height:680px; padding:20px 90px; margin:0 auto; background-color:#fff;}
+
+			/*###### issue_MacLeft  ######*/
+				.issue_MacLeft{width:710px; height:100%; float:left;}
+				.issue_MacLeft li{width:300px; height:320px;/*288*/ 
+				margin-right:50px; float:left;}
+				.issue_MacLeft li dl{width:300px; height:300px;}
+				.issue_MacLeft li dt{width:300px; height:200px;}
+				.issue_MacLeft li dt a{display:block; width:300px; height:200px; overflow:hidden;}
+				.issue_MacLeft li dt a img{width:300px;}
+				#issue_Mac #issue_MacInnerWrap .issue_MacLeft h2{font-size:20px; padding-bottom:30px; text-indent:10px;}
+				.issue_MacLeft li dd{font-size:11px; padding:7px 0; text-indent:10px;}
+				.issue_MacLeft li .dd_borderBottom{border-bottom:1px solid #ccc;}
+				.opaqueBox{width:0; height:0; background-color:rgba(200,50,50,0.3); position:absolute; left:0; top:4000px; transition:all 1s ease 0.2s; cursor:pointer;}
+
+			/*###### issue_MacRight  ######*/
+				.issue_MacRight{width:400px; height:600px; float:left; background-color:#F7FAFF;}
+				#issue_Mac #issue_MacInnerWrap .issue_MacRight h2{height:20px; font-size:11px; padding:10px 0; border-bottom:1px solid #eee;}
+				.issue_MacRight ul{width:390px; height:220px; margin:0 auto;}
+				.issue_MacRight li{width:140px; height:200px; float:left;}
+				.issue_MacRight .vsImg{width:84px; margin:0 13px;}
+ 				#issue_Mac #issue_MacInnerWrap .issue_MacRight .dd_borderBottom{text-align:left;}
+				.issue_MacRight .last_ul{padding-top:15px;}
+				.issue_MacRight .last_ul li{width:350px; height:44px; margin:0 auto; padding-left:25px; line-height:44px;}
+				.issue_MacRight .last_ul a{display:block; width:78%; font-size:11px; float:left;}
+				.issue_MacRight .last_ul span{display:block; width:22%; font-size:11px; float:left;}
+				
+				.topBox{display:block; width:50px; border-radius:8px; line-height:58px; font-weight:600; text-align:center; background-color:#363636; color:#fff; font-size:35px; opacity:.7; position:fixed; right:20px; bottom:20px; transition:all 1s;}
+				.topBox:hover{border:2px solid red; border-radius:8px;}
+
+				#div_fixed{width:100%; height:500px; background-color:pink; position:fixed; right:-3000px;}
+	/*########## mobContainer ##########*/
+		#mobContainer section div p{font-size:23px; font-weight:700;}
+		#mobContainer #mob_product_desc4_1 div p, 
+		#mobContainer #mob_product_desc4_2 div p, 
+		#mobContainer #mob_product_desc5_1 div p{font-size:14px; font-weight:500;}
+
+
+	/*########## footer ##########*/
+		#footerWrap{width:100%; height:425px; background-color:#2F2F37;}
+		#footerWrap #footer{width:1400px; height:100%; margin:0 auto; overflow:hidden;}
+
+
+	/*########## footer_upper ##########*/
+		#upper{width:100%; height:350px;} 
+		#upper ul{width:18%; padding-right:5%; float:left;}
+		#upper .wide_ul{width:31%}
+		
+		.white_bold{display:block; padding:60px 0 25px; color:#fff; font-family:Oswald, sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; line-height:20px;}
+		.karla{font-family:Karla, sans-serif; font-size: 13px; line-height: 20px; color:#fff;}
+		.intro{color:hsla(0,0%,100%,.7); font-size:13px; line-height: 20px;}
+		.intro a.orange{color:#faaf52; text-decoration:underline;}
+		#upper .padding_bottom0{padding-bottom:30px;}
+		#upper .padding_bottom span{display:block; height:40px; padding-top:30px;}
+
+		#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+		#upper .narrow_div li{padding-bottom:13px; font-size:12px;}
+		#upper .narrow_div li a{color:hsla(0,0%,100%,.7);}
+		#upper .narrow_div li:hover a{text-decoration:underline; 
+		color:#fff;}
+
+		#upper .contact .position{position:relative;}
+		#upper .contact img{position:absolute; bottom:0; left:-3px;}
+		#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+		#upper .contact a:hover{text-decoration:underline; color:#fff;}
+		#upper li.white_bold{display:inline-block; width:85px; height:20px; padding-bottom:0; border-bottom:3px solid hsla(0,0%,100%,.7);}
+		#upper li.white_bold:hover{border-bottom:3px solid #fff;}
+		#upper li.white_bold a{color:#fff;}
+		#upper li.white_bold a:hover{text-decoration:none;}
+
+		#upper .follow_me{width:300px; float:left;}
+		#upper .follow_me ul{width:150px; height:33px; float:none;}
+		#upper .follow_me ul li{float:left; width:33px; height:100%;}
+		#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+		#upper .follow_me ul li a img{position:absolute; left:-8px;}
+		#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+		#upper .follow_me ul .top2px a img{top:2px;}
+
+	/*########## footer_lower ##########*/
+
+		#lower{width:100%; height:15px; padding:30px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:11px;}
+		#lower div{width:40%; float:left;}
+		#lower div span{padding-right:10px;}
+		#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+		#lower p {width:60%; text-align:right; float:left;}
+		#lower p a{color:hsla(0,0%,100%,.7);}
+		#lower p span{color:#fff;}
+		#lower p span:hover{text-decoration:underline; font-weight:700;}
+
+	
+	@media all and (min-width:663px) and (max-width:1024px){
+			#skipNav{display:none;}
+
+		/*########## header ##########*/
+			#header{display:none;}
+
+			#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative;}
+			#mobHeader div{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+			#mobHeader div p{width:32px; height:30px; margin:0 auto;}
+			#mobHeader div span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+			#mobHeader div .no_margin{margin-right:0;}
+
+		/*####### mobMenu #######*/
+			#mobMenu{display:none; width:100%; position:absolute; left:0; top:0;}
+			
+			#mobMenu div{width:100%; margin:0 auto; height:50px; background-color:#000; border-bottom:1px solid #dedede; position:relative;}
+			#mobMenu div span:first-child{width:21px; text-align:right; position:absolute; top:15px; left:5px;}
+			#mobMenu div span:last-child{width:21px; text-align:left; position:absolute; top:15px; right:5px;}
+			#mobMenu div .margin_both{display:block; width:23px; margin:0 auto;}
+			#mobMenu div .margin_both img{width:100%;}
+			
+			#mobMenu div span img{width:90%;}
+			#mobMenu div form{display:none; width:82%; line-height:40px; float:left;}
+			#mobMenu div form input{width:100%; text-indent:10px; height:22px; border-radius:10px; outline:none;}
+
+			#mobMenu ul{width:100%; background-color:#000; transition:all .5s; text-align:center;}
+			#mobMenu ul li{width:100%; border-bottom:1px solid #cdcdcd; line-height:40px;}
+			#mobMenu ul li a{color:#E5E5E5;}
+
+		/*########## mobcontainer ##########*/
+			#container{display:none;}
+
+			#mobContainer{display:block; width:100%; background-color:#fff;}
+			#mobVisual{width:100%; height:770px; background-image:url('imgs/airPods_4.jpeg'); background-size:700px; background-position:center; background-color:#fff; background-repeat:no-repeat;}
+			section{margin-bottom:15px; text-align:center;}
+			section h2{font-size:16px;}
+			section div a{color:#2885D0; font-weight:700;}
+			section div a:hover, section div a:focus{text-decoration:underline;}
+			
+			#mob_product_desc0{width:100%; height:400px; background-color:#FAFAFA; background-image:url('imgs/iPhone_11.jpg'); background-size:800px; background-repeat:no-repeat; background-position:center;}
+			#mob_product_desc0 p{font-size:23px; font-weight:700;}
+			#mob_product_desc0 div a:hover, #mob_product_desc0 div a:focus{text-decoration:underline;}
+
+			#mob_product_desc1{width:320px; height:270px; margin:70px auto 105px; background-image:url('imgs/iMac1_mob.jpg'); background-size:100%; background-repeat:no-repeat; padding-top:7px; transition:all 1s linear;}
+			#mob_product_desc1 h2{display:none;}
+			#mob_product_desc1 div{width:92%; height:170px; margin:10px auto 0; overflow:hidden; position:relative; border-radius:7px;}
+			#mob_product_desc1 div p{width:100%;  position:absolute; top:0;}
+			#mob_product_desc1 div p img{width:100%;}
+
+			#mob_product_desc1 div .ani2{opacity:0; animation:ani2 4s infinite alternate;}
+			@keyframes ani2{
+				0%{opacity:0;}
+				25%{opacity:1;}
+				50%{opacity:0;}
+			}
+			#mob_product_desc1 div .ani3{opacity:0; animation:ani3 4s infinite alternate;}
+
+			@keyframes ani3{
+				51%{opacity:0;}
+				75%{opacity:1;}
+				100%{opacity:0;}
+			}
+
+			#mob_product_desc2{width:100%; height:500px; background-image:url('imgs/watch0.jpg'); background-size:800px; background-repeat:no-repeat; background-position:center; background-color:#fafafa;}
+			#mob_product_desc2 h2{padding-top:5%;}
+
+			#mob_product_desc3{width:100%; height:520px; background-image:url('imgs/iPad0_mob.jpg'); background-size:100%; background-repeat:no-repeat; background-color:#fafafa; background-position:center;}
+			#mob_product_desc3_1{width:100%; height:900px; overflow:hidden;}
+			#mob_product_desc3_1 div{width:99%; margin:0 auto; text-align:center;}
+			#mob_product_desc3_1 div b{display:block; padding-top:100px; text-transform:uppercase; font-weight:700; font-family:'arial', sans-serif;}
+			#mob_product_desc3_1 div p{width:95%; margin:0 auto; font-weight:700; text-align:center; overflow:hidden;}
+			#mob_product_desc3_1 div p img{width:700px; margin-left:-5%;}
+			#mob_product_desc3_1 div a{display:block; width:30%; margin:13px auto; background-color:#000; line-height:17px; color:#fff; text-align:center; font-size:11px;}
+			#mob_product_desc3_1 div span{color:#acacac; font-size:10px;}
+			#mob_product_desc3_1 div div{width:650px; height:750px; margin:0 auto; position:relative;}
+			#mob_product_desc3_1 div div p{height:100%;}
+			#mob_product_desc3_1 div div p:last-child{position:absolute; width:434px; height:320px; top:21%;/*71px*/ left:120px;}
+			#mob_product_desc3_1 div div p:last-child video{width:100%;}
+
+			#mob_product_desc4{width:100%; height:900px;}
+			#mob_product_desc4 h2{/*width:100%;*/ height:30px; padding-top:100px;}
+			#mob_product_desc4 div:last-child{width:100%; height:750px; background-image:url('imgs/beats0.png'); 
+			background-size:700px; background-position:center; background-repeat:no-repeat;}
+
+
+			#mob_product_desc4_1{width:100%; height:910px; text-align:left;}
+			#mob_product_desc4_1 h3{width:92%; margin:0 auto; font-size:16px; font-weight:600;}
+			#mob_product_desc4_1 div{width:92%; margin:0 auto;}
+			#mob_product_desc4_1 h2{padding:30px 0; font-size:20px;}
+			#mob_product_desc4_1 div p{font-size:14px; padding-bottom:70px;}
+			#mob_product_desc4_1 .img_div{height:640px; position:relative;}
+			#mob_product_desc4_1 span{display:block;}
+			#mob_product_desc4_1 span:first-child{width:563px;}
+			#mob_product_desc4_1 span:last-child{width:563px; position:absolute; right:10px; bottom:10px;}
+			#mob_product_desc4_1 span img{width:100%;}
+			#mob_product_desc4_2{width:100%; height:560px; padding-top:30px; margin-bottom:45px; text-align:left; position:relative;}
+			#mob_product_desc4_2 h3{padding-bottom:80px; font-size:16px; font-weight:600; text-indent:4%;}
+			#mob_product_desc4_2 h2{padding:30px 0; font-size:23px; font-weight:700;}
+			#mob_product_desc4_2 div{height:470px; padding-top:20px; overflow:hidden;}
+			#mob_product_desc4_2 img{width:100%; margin:0 auto; margin-top:-100px;}
+			#mob_product_desc4_2 div:last-child{width:72%; padding:0 4%; height:250px; position:absolute; top:60px; background-color:#fff; font-size:14px;}
+
+			section{padding-top:40px;}
+
+			#mob_product_desc5{width:100%; height:500px; padding-top:40px; background-image:url('imgs/card0.jpg'); background-size:100%; background-repeat:no-repeat; margin-bottom:50px; background-color:#FAFAFA; background-position:center;}
+			#mob_product_desc5_1{width:100%; height:550px; text-align:left;}
+			#mob_product_desc5_1 h3{width:92%; margin:0 auto; font-size:16px; font-weight:600;}
+			#mob_product_desc5_1 div{width:92%; margin:0 auto;}
+			#mob_product_desc5_1 h2{padding:30px 0; font-size:20px;}
+			#mob_product_desc5_1 p{font-size:14px;}
+			#mob_product_desc5_1 .img_div_pay{width:100%; padding-top:30px;}
+			#mob_product_desc5_1 .img_div_pay span{display:block; width:100%; height:370px; overflow:hidden;}
+			#mob_product_desc5_1 .img_div_pay img{width:100%;}
+
+			.opaqueBox{display:none;}
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%;}
+
+			#footer:after{content:''; display:block; clear:both;}
+		
+		/*########## footer_upper ##########*/
+			#upper{width:94%; height:350px; padding:0 3%;} 
+			#upper ul{width:27%; padding-right:3%; float:left;}
+			#upper .wide_ul{width:34%;}
+
+			#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+
+			#upper .follow_me{width:15%; float:left;}
+
+		/*########## footer_lower ##########*/
+
+			#lower{width:100%; height:100%; padding:15px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:70%; padding-left:3%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:24%; padding-right:3%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+	}
+	
+	@media all and (min-width:480px) and (max-width:662px){
+			#skipNav{display:none;}
+		
+		/*########## header ##########*/
+			#wrap{max-width:767px; width:100%; margin:0 auto;}
+			#header{display:none;}
+			#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative;}
+			#mobHeader div{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+			#mobHeader div p{width:32px; height:30px; margin:0 auto;}
+			#mobHeader div span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+			#mobHeader div .no_margin{margin-right:0;}
+
+		/*####### mobMenu #######*/
+			#mobMenu{display:none; width:100%; position:absolute; left:0; top:0;}
+			
+			#mobMenu div{width:100%; margin:0 auto; height:50px; background-color:#000; border-bottom:1px solid #dedede; position:relative;}
+			#mobMenu div span:first-child{width:21px; text-align:right; position:absolute; top:15px; left:5px;}
+			#mobMenu div span:last-child{width:21px; text-align:left; position:absolute; top:15px; right:5px;}
+			#mobMenu div .margin_both{display:block; width:23px; margin:0 auto;}
+			#mobMenu div .margin_both img{width:100%;}
+			
+			#mobMenu div span img{width:90%;}
+			#mobMenu div form{display:none; width:82%; line-height:40px; float:left;}
+			#mobMenu div form input{width:100%; text-indent:10px; height:22px; border-radius:10px; outline:none;}
+
+			#mobMenu ul{width:100%; background-color:#000; transition:all .5s; text-align:center;}
+			#mobMenu ul li{width:100%; border-bottom:1px solid #cdcdcd; line-height:40px;}
+			#mobMenu ul li a{color:#E5E5E5;}
+
+		/*########## mobcontainer ##########*/
+			#container{display:none;}
+
+			#mobContainer{display:block; width:100%; background-color:#fff;}
+			#mobVisual{width:100%; height:370px; background-image:url('imgs/airPods_3.png'); background-size:100%; background-repeat:no-repeat;}
+			section{margin-bottom:15px; text-align:center;}
+			section h2{font-size:16px;}
+			section div a{color:#2885D0; font-weight:700;}
+			section div a:hover, section div a:focus{text-decoration:underline;}
+			
+			#mob_product_desc0{width:100%; height:400px; background-image:url('imgs/iPhone_11.jpg'); background-size:100%; background-repeat:no-repeat;}
+			#mob_product_desc0 p{font-size:23px; font-weight:700;}
+			#mob_product_desc0 div a:hover, #mob_product_desc0 div a:focus{text-decoration:underline;}
+
+			#mob_product_desc1{width:320px; height:270px; margin:70px auto 105px; background-image:url('imgs/iMac1_mob.jpg'); background-size:100%; background-repeat:no-repeat; padding-top:7px; transition:all 1s linear;}
+			#mob_product_desc1 h2{display:none;}
+			#mob_product_desc1 div{width:92%; height:170px; margin:10px auto 0; overflow:hidden; position:relative; border-radius:7px;}
+			#mob_product_desc1 div p{width:100%;  position:absolute; top:0;}
+			#mob_product_desc1 div p img{width:100%;}
+
+			#mob_product_desc1 div .ani2{opacity:0; animation:ani2 4s infinite alternate;}
+			@keyframes ani2{
+				0%{opacity:0;}
+				25%{opacity:1;}
+				50%{opacity:0;}
+			}
+			#mob_product_desc1 div .ani3{opacity:0; animation:ani3 4s infinite alternate;}
+
+			@keyframes ani3{
+				51%{opacity:0;}
+				75%{opacity:1;}
+				100%{opacity:0;}
+			}
+
+			#mob_product_desc2{width:100%; height:500px; background-image:url('imgs/watch0.jpg'); background-size:100%; background-repeat:no-repeat; background-position:0 -25%;}
+			#mob_product_desc2 h2{padding-top:5%;}
+
+			#mob_product_desc3{width:100%; height:520px; background-image:url('imgs/iPad0_mob.jpg'); background-size:100%; background-repeat:no-repeat;}
+			#mob_product_desc3_1{width:100%; height:750px;}
+			#mob_product_desc3_1 div{width:99%; margin:0 auto; text-align:center;}
+			#mob_product_desc3_1 div b{display:block; padding-top:6%; text-transform:uppercase; font-weight:700; font-family:'arial', sans-serif;}
+			#mob_product_desc3_1 div p{width:95%; margin:0 auto; font-weight:700; text-align:center; overflow:hidden;}
+			#mob_product_desc3_1 div p img{width:110%; margin-left:-5%;}
+			#mob_product_desc3_1 div a{display:block; width:30%; margin:13px auto; background-color:#000; line-height:17px; color:#fff; text-align:center; font-size:11px;}
+			#mob_product_desc3_1 div span{color:#acacac; font-size:10px;}
+			#mob_product_desc3_1 div div{position:relative;}
+			#mob_product_desc3_1 div div p:last-child{position:absolute; width:66%; height:41.5%; top:21%;/*71px*/ left:17%;}
+			#mob_product_desc3_1 div div p:last-child video{width:100%;}
+
+			#mob_product_desc4{width:100%; height:800px;}
+			#mob_product_desc4 h2{/*width:100%;*/ height:30px; padding-top:100px;}
+			#mob_product_desc4 div:last-child{width:100%; height:650px; background-image:url('imgs/beats0.png'); 
+			background-size:100%; background-position:0 50%; background-repeat:no-repeat;}
+
+
+			#mob_product_desc4_1{width:100%; height:910px; text-align:left;}
+			#mob_product_desc4_1 h3{width:92%; margin:0 auto; font-size:16px; font-weight:600;}
+			#mob_product_desc4_1 div{width:92%; margin:0 auto;}
+			#mob_product_desc4_1 h2{padding:30px 0; font-size:20px;}
+			#mob_product_desc4_1 div p{font-size:14px; padding-bottom:70px;}
+			#mob_product_desc4_1 .img_div{height:640px; position:relative;}
+			#mob_product_desc4_1 span{display:block;}
+			#mob_product_desc4_1 span:first-child{width:85%;}
+			#mob_product_desc4_1 span:last-child{width:80%; position:absolute; right:10px; bottom:24px;}
+			#mob_product_desc4_1 span img{width:100%;}
+			#mob_product_desc4_2{width:100%; height:500px; padding-top:30px; margin-bottom:45px; text-align:left; position:relative;}
+			#mob_product_desc4_2 h3{padding-bottom:80px; font-size:16px; font-weight:600; text-indent:4%;}
+			#mob_product_desc4_2 h2{padding:30px 0; font-size:23px; font-weight:700;}
+			#mob_product_desc4_2 div{height:370px; padding-top:20px; overflow:hidden;}
+			#mob_product_desc4_2 img{width:100%;}
+			#mob_product_desc4_2 div:last-child{width:72%; padding:0 4%; height:250px; position:absolute; top:60px; background-color:#fff; font-size:14px;}
+
+			section{padding-top:40px;}
+
+			#mob_product_desc5{width:100%; height:500px; padding-top:40px; background-image:url('imgs/card0.jpg'); background-size:100%; background-repeat:no-repeat; margin-bottom:50px;}
+			#mob_product_desc5_1{width:100%; height:550px; text-align:left;}
+			#mob_product_desc5_1 h3{width:92%; margin:0 auto; font-size:16px; font-weight:600;}
+			#mob_product_desc5_1 div{width:92%; margin:0 auto;}
+			#mob_product_desc5_1 h2{padding:30px 0; font-size:20px;}
+			#mob_product_desc5_1 p{font-size:14px;}
+			#mob_product_desc5_1 .img_div_pay{width:100%; padding-top:30px;}
+			#mob_product_desc5_1 .img_div_pay span{display:block; width:100%; overflow:hidden;}
+			#mob_product_desc5_1 .img_div_pay img{width:110%;}
+
+			.opaqueBox{display:none;}
+
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+			#footer:after{content:''; display:block; clear:both;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:92%; height:100%; padding:0 4%;} 
+			#upper ul{width:100%; float:none;}
+			#upper .wide_ul{width:100%;}
+			#upper .wide_ul b{padding-top:20px;}
+
+			#upper .narrow_div{display:none;}
+			
+			#upper .contact{width:60%; height:123px; float:left;}
+			#upper .contact .white_bold{padding:20px 0 10px;}
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:none;}
+
+			#upper .follow_me{width:35%; height:75px; float:left;}
+			#upper .follow_me h4{width:100%; height:73%;}
+			#upper .follow_me b{padding-top:25px;}
+			#upper .follow_me ul{width:150px; height:40%; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+			#upper:after{content:''; display:block; clear:both;}
+		/*########## footer_lower ##########*/
+
+			#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:73%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {width:20%; padding-right:7%; text-align:right; float:left;}
+			#lower p a{color:hsla(0,0%,100%,.7);}
+			#lower p span{color:#fff;}
+			#lower p span:hover{text-decoration:underline; font-weight:700;}
+	}
+
+	@media all and (min-width:320px) and (max-width:479px){
+			#skipNav{display:none;}
+		
+		/*########## header ##########*/
+			#wrap{max-width:479px; width:100%; margin:0 auto;}
+			#header{display:none;}
+			
+			/*####### mobHeader #######*/
+			#mobHeader{display:block; width:100%; height:50px; text-align:center; position:relative; overflow:hidden;}
+			#mobHeader .img_header{width:50px; height:30px; position:absolute; right:10px; top:8px; border:2px solid #343434; background-image:-webkit-linear-gradient(top, #343434, #595959); border-radius:7px;}
+			#mobHeader .img_header p{width:32px; height:30px; margin:0 auto;}
+			#mobHeader .img_header span{display:block; width:9px; height:1px; margin:2px 2px 0 0; float:left; overflow:hidden; border:3px solid #000; background-color:#000;}
+
+			#mobHeader .img_header .no_margin{margin-right:0;}
+
+			/*####### mobMenu #######*/
+			#mobMenu{display:none; width:100%; position:absolute; left:0; top:0;}
+			
+			#mobMenu div{width:100%; margin:0 auto; height:50px; background-color:#000; border-bottom:1px solid #dedede; position:relative;}
+			#mobMenu div span:first-child{width:21px; text-align:right; position:absolute; top:15px; left:5px;}
+			#mobMenu div span:last-child{width:21px; text-align:left; position:absolute; top:15px; right:5px;}
+			#mobMenu div .margin_both{display:block; width:23px; margin:0 auto;}
+			#mobMenu div .margin_both img{width:100%;}
+			
+			#mobMenu div span img{width:90%;}
+			#mobMenu div form{display:none; width:82%; line-height:40px; float:left;}
+			#mobMenu div form input{width:100%; text-indent:10px; height:22px; border-radius:10px; outline:none;}
+
+			#mobMenu ul{width:100%; background-color:#000; transition:all .5s; text-align:center;}
+			#mobMenu ul li{width:100%; border-bottom:1px solid #cdcdcd; line-height:40px;}
+			#mobMenu ul li a{color:#E5E5E5;}
+
+
+		/*########## mobContainer ##########*/
+
+			#container{display:none;}
+
+			#mobContainer{display:block; width:100%; background-color:#fff;}
+			#mobVisual{width:100%; height:210px; background-image:url('imgs/airPods_3.png'); background-size:100%; background-repeat:no-repeat;}
+			section{margin-bottom:15px; text-align:center;}
+			section h2{font-size:16px;}
+			section div a{color:#2885D0; font-weight:700;}
+			section div a:hover, section div a:focus{text-decoration:underline;}
+			
+			#mob_product_desc0{width:100%; height:230px; background-image:url('imgs/iPhone_11.jpg'); background-size:100%; background-repeat:no-repeat;}
+			#mob_product_desc0 p{font-size:23px; font-weight:700;}
+			#mob_product_desc0 div a:hover, #mob_product_desc0 div a:focus{text-decoration:underline;}
+
+			#mob_product_desc1{width:320px; height:270px; margin:105px auto; background-image:url('imgs/iMac1_mob.jpg'); background-size:100%; background-repeat:no-repeat; padding-top:7px; transition:all 1s linear;}
+			#mob_product_desc1 h2{display:none;}
+			#mob_product_desc1 div{width:92%; height:170px; margin:10px auto 0; overflow:hidden; position:relative; border-radius:7px;}
+			#mob_product_desc1 div p{width:100%;  position:absolute; top:0;}
+			#mob_product_desc1 div p img{width:100%;}
+
+			#mob_product_desc1 div .ani2{opacity:0; animation:ani2 4s infinite alternate;}
+			@keyframes ani2{
+				0%{opacity:0;}
+				25%{opacity:1;}
+				50%{opacity:0;}
+			}
+			#mob_product_desc1 div .ani3{opacity:0; animation:ani3 4s infinite alternate;}
+
+			@keyframes ani3{
+				51%{opacity:0;}
+				75%{opacity:1;}
+				100%{opacity:0;}
+			}
+
+			#mob_product_desc2{width:100%; height:370px; background-image:url('imgs/watch0.jpg'); background-size:100%; background-repeat:no-repeat;}
+
+			#mob_product_desc3{width:100%; height:320px; background-image:url('imgs/iPad0_mob.jpg'); background-size:100%; background-repeat:no-repeat;}
+			#mob_product_desc3_1{width:100%; height:600px;}
+			#mob_product_desc3_1 div{width:99%; margin:0 auto; text-align:center;}
+			#mob_product_desc3_1 div b{display:block; text-transform:uppercase; padding-top:60px; font-weight:700; font-family:'arial', sans-serif;}
+			#mob_product_desc3_1 div p{width:95%; margin:0 auto; font-weight:700; text-align:center; overflow:hidden;}
+			#mob_product_desc3_1 div p img{width:110%; margin-left:-5%;}
+			#mob_product_desc3_1 div a{display:block; width:30%; margin:13px auto; background-color:#000; line-height:17px; color:#fff; text-align:center; font-size:11px;}
+			#mob_product_desc3_1 div span{color:#acacac; font-size:10px;}
+			#mob_product_desc3_1 div div{position:relative;}
+			#mob_product_desc3_1 div div p:last-child{position:absolute; width:65%; height:41%; top:21%;/*71px*/ left:18%;}
+			#mob_product_desc3_1 div div p:last-child video{width:100%;}
+
+			#mob_product_desc4{width:100%; height:500px; background-image:url('imgs/beats0.png'); background-size:100%; background-position:0 65px; background-repeat:no-repeat;}
+			#mob_product_desc4_1{width:100%; text-align:left;}
+			#mob_product_desc4_1 h3{width:95%; margin:0 auto; font-size:16px; font-weight:600;}
+			#mob_product_desc4_1 div{width:95%; margin:0 auto;}
+			#mob_product_desc4_1 h2{padding:30px 0; font-size:20px;}
+			#mob_product_desc4_1 div p{font-size:14px; padding-bottom:70px;}
+			#mob_product_desc4_1 .img_div{height:300px; position:relative;}
+			#mob_product_desc4_1 span{display:block;}
+			#mob_product_desc4_1 span:first-child{width:85%;}
+			#mob_product_desc4_1 span:last-child{width:80%; position:absolute; right:10px; bottom:-10px;}
+			#mob_product_desc4_1 span img{width:100%;}
+			#mob_product_desc4_2{width:100%; padding-top:30px; margin-bottom:45px; text-align:left; position:relative;}
+			#mob_product_desc4_2 h3{padding-bottom:80px; font-size:16px; font-weight:600; text-indent:4%;}
+			#mob_product_desc4_2 h2{padding:30px 0; font-size:23px; font-weight:700;}
+			#mob_product_desc4_2 div{height:370px; padding-top:20px; overflow:hidden;}
+			#mob_product_desc4_2 img{height:100%; margin-left:-110px;}
+			#mob_product_desc4_2 div:last-child{width:72%; padding:0 4%; height:250px; position:absolute; top:60px; background-color:#fff; font-size:14px;}
+
+
+			#mob_product_desc5{width:100%; height:320px; padding-top:40px; background-image:url('imgs/card0.jpg'); background-size:100%; background-repeat:no-repeat; margin-bottom:50px;}
+			#mob_product_desc5_1{width:100%; text-align:left;}
+			#mob_product_desc5_1 h3{width:97%; margin:0 auto; font-size:15px; font-weight:600;}
+			#mob_product_desc5_1 div{width:97%; margin:0 auto;}
+			#mob_product_desc5_1 h2{padding:30px 0; font-size:19px;}
+			#mob_product_desc5_1 p{font-size:14px;}
+			#mob_product_desc5_1 .img_div_pay{width:100%; padding-top:30px;}
+			#mob_product_desc5_1 .img_div_pay span{display:block; width:100%; overflow:hidden;}
+			#mob_product_desc5_1 .img_div_pay img{width:110%;}
+
+			.opaqueBox{display:none;}
+		
+		/*########## footer ##########*/
+			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
+			#footerWrap #footer{width:100%; height:100%; overflow:hidden;}
+
+			#footer:after{content:''; display:block; clear:both;}
+
+
+		/*########## footer_upper ##########*/
+			#upper{width:95%; height:100%; padding-left:5%;} 
+			#upper ul{width:100%; float:none;}
+			#upper .wide_ul{display:none;}
+
+			#upper .narrow_div{display:none; float:none;}
+			
+			#upper .contact .white_bold{padding:20px 0 10px;}
+			#upper .contact .position{position:relative;}
+			#upper .contact img{position:absolute; bottom:0; left:-3px;}
+			#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+			#upper .contact a:hover{text-decoration:underline; color:#fff;}
+			#upper li.white_bold{display:none;}
+
+			#upper .follow_me{width:100%; height:75px; float:none;}
+			#upper .follow_me h4{width:100%; height:73%;}
+			#upper .follow_me b{padding-top:25px;}
+			#upper .follow_me ul{width:150px; height:40%; float:none;}
+			#upper .follow_me ul li{float:left; width:33px; height:100%;}
+			#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+			#upper .follow_me ul li a img{position:absolute; left:-8px;}
+			#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+			#upper .follow_me ul .top2px a img{top:2px;}
+
+			#upper:after{content:''; display:block; clear:both;}
+		/*########## footer_lower ##########*/
+
+			#lower{width:95%; height:100%; padding:15px 0 15px 5%; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:10px;}
+			#lower div{width:100%; float:left;}
+			#lower div span{padding-right:10px;}
+			#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+			#lower p {display:none;}
+	}
+		
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('#iPhone_ad').hover(function(){
+				$(this).children('img').css({'width':'800px','height':'402px','marginTop':'260px'});
+			},function(){
+				$(this).children('img').css({'transform':'rotate3d(0,0,1,90deg)','left':'300px'});
+				$(this).children('p').css({'left':'529px'}).show(1300,'swing');
+
+			}).mouseover(function(){
+				$(this).children('div').css({'right':'400px'});
+			});
+		});
+	</script>
+
+ </head>
+
+ <body>
+	<div id="skipNav">
+		<p><a href="#gnb" title="Items">Items</a></p>
+		<p><a href="#right" title="Newest iPad Area">New iPad</a></p>
+		<p><a href="#footerWrap" title="Contact Us">Contact Us</a></p>
+	</div>
+	<div id='wrap'>
+		<div id='headerWrap'>
+			<header id='header'>
+				<h1>
+					<a href='index.html' title='apple'>
+						<img src='imgs/apple_logo.svg' alt='apple logo'/>
+					</a>
+				</h1>
+				<div id='topMenu'>
+					<ul id='infoMenu'>
+						<li>
+							<a href='login.html' title='Log in'>
+								Log in
+							</a>
+							<a href='signup.html' title='Sign Up'>
+								Sign Up
+							</a>
+							<a href='#none' title='My Page'>
+								My Page
+							</a>
+						
+							<a href='#none' title='Cart'>
+								Cart
+							</a>
+							<a href='#none' title='Order/Delivery'>
+								Order/Delivery
+							</a>
+							<a href='#none' title='A/S'>
+								A/S
+							</a>
+							<a href='#none' title='appleCafe'>
+								Apple Cafe
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id='gnb'>
+					<div id='search'>
+						<form id="ac-gn-searchform" action='https://www.apple.com/search' method='get' name='f'>
+							<fieldset>
+								<legend>검색</legend>
+								<p class='input'>
+									<input id='ac-gn-searchform-input' type='text' name='src' autocomplete='off' placeholder='Search apple.com' maxlength='150' title='Search'/>
+								</p>
+								<p class='btn'>
+									<a href='#' title='search button'>
+										<img src='imgs/srchBtn_V2.png' alt='button image'/>
+									</a>
+								</p>
+							</fieldset>
+						</form>
+					</div>
+					<ul id='gnb_shop'>
+						<li>
+							<a href='mac_apple.html' title='Mac'>
+								Mac
+							</a>
+						</li>
+						<li>
+							<a href='iPad_apple.html' title='iPad'>
+								iPad
+							</a>
+						</li>
+						<li>
+							<a href='iPhone_apple.html' title='iPhone'>
+								iPhone
+							</a>
+						</li>
+						<li>
+							<a href='#none' title='Watch'>
+								Watch
+							</a>
+						</li>
+						<li>
+							<a href='#none' title='Music'>
+								Music
+							</a>
+						</li>
+						<li>
+							<a href='#none' title='Customer Service'>
+								Customer Service
+							</a>
+						</li>
+						<li class="gnb_none">
+							<a href='#none' title='디자인용품ㆍ소품'>
+								<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+							</a>
+						</li>
+						<li class="gnb_none">
+							<a href='#none' title='디자인용품ㆍ소품'>
+								<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+							</a>
+						</li>
+					</ul>
+					<ul id='gnb_service'>
+						<li>
+							<a href='#none' title='Best'>
+								Best
+							</a>
+						</li>
+						<li>
+							<a href='#none' title='New'>
+								New
+							</a>
+						</li>
+						<li>
+							<a href='#none' title='Hot Issue'>
+								Hot Issue
+							</a>
+						</li>
+						<li>
+							<a href='#none' title='In Sale'>
+								In Sale
+							</a>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<div id='mobHeader'>
+				<a href='index.html' title='apple_homepage'>
+					<img src='imgs/logo_signup.svg' alt='apple logo'/>
+				</a>
+				<div class='img_header'>
+					<p>
+						<span></span><span class='no_margin'></span>
+						<span></span><span class='no_margin'></span>
+						<span></span><span class='no_margin'></span>
+					</p>
+				</div>
+			</div>
+			<div id='mobMenu'>
+				<div>
+					<span>
+						<img src='imgs/search_image0.png' alt='search image'/>
+					</span>
+					<span class='margin_both'>
+						<a href='index.html' title='index page'>
+							<img src='imgs/logo_signup.svg' alt='apple logo'/>
+						</a>
+					</span>
+					<form action='https://www.apple.com/search' method='get'>
+						<fieldset>
+							<legend></legend>
+							<input type='text' name='src' placeholder='Search apple.com' autofocus autocomplete='off' maxlength='300'/>
+						</fieldset>
+					</form>
+					<span>
+						<img src='imgs/cancel_image.png' alt='cancel image'/>
+					</span>
+				</div>
+				<ul>
+					<li>
+						<a href='' title=''>Mac</a>
+					</li>
+					<li>
+						<a href='' title=''>iPad</a>
+					</li>
+					<li>
+						<a href='' title=''>iPhone</a>
+					</li>
+					<li>
+						<a href='' title=''>Watch</a>
+					</li>
+					<li>
+						<a href='' title=''>Music</a>
+					</li>
+					<li>
+						<a href='' title=''>Customer Service</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id='container'>
+			<div id='visual'>
+				<ul>
+					<li>
+						<img src='imgs/index_slide0.jpg' alt='아이폰 이미지'/>
+					</li>
+				</ul>
+			</div>
+			<div id='iPhone_ad'>
+				<img src='imgs/iPhone_ad0.jpg' alt='iPhone_ad0'/>
+				<p>
+					<span>iPhone 11</span>
+					Compare iPhones.
+					<span class='iPhone_ad_span'>From $16.62/mo. or
+						$399 with trade-in.*
+					</span>
+					<a href='#none' title='Find the best iPhone'><span>Find the best iPhone for you &gt;</span></a>
+				</p>
+				<div>
+					<span>Black Friday offers start now</span>
+					<span class='iPhone_ad_div_span2'>
+						Why wait to start gift hunting? We’re kicking off the holidays early with Black Friday offers all month long.
+					</span>
+					<a class='iPhone_ad_div_a' href='#none' title='shop offers'>
+						shop offers
+					</a>
+				</div>
+			</div>
+			<div id='section_ad'>
+				<h2>featured accessories</h2>
+				<ul>
+					<li>
+						<a href='#none' title=''>
+							<img src='imgs/index_featured_accessories0.jpg' alt='iPhone이미지0'/>
+							<span class='whatblue'>
+								iPhone 11 Pro<br/>
+								Leather Case
+							</span>
+						</a>
+					</li>
+					<li class='padding'>
+						<a href='#none' title=''>
+							<img src='imgs/index_featured_accessories1.jpg' alt='iPhone이미지1'/>
+							<span class='whatblue'>
+								iPhone 11<br/>
+								Silicone Case
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href='#none' title=''>
+							<img src='imgs/index_featured_accessories2.jpg' alt='iPhone이미지2'/>
+							<span class='whatblue'>
+								AirPods with Wireless<br/> 
+								Charging Case
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id='section_Mac'>
+				<h3>MacBook Series</h3>
+				<ul>
+					<li class='margin_top'>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series0.jpg' alt='iPhone이미지'/>
+							<span>
+								MacBook Pro
+							</span>
+						</a>
+					</li>
+					<li class='margin_top'>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series1.jpg' alt='iPhone이미지'/>
+							<span>
+								MacBook Air
+							</span>
+						</a>
+					</li>
+					<li class='margin_top'>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series2.jpg' alt='iPhone이미지'/>
+							<span>
+								iMac
+							</span>
+						</a>
+					</li>
+					<li class='margin_top'>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series3.jpg' alt='iPhone이미지'/>
+							<span>
+								iMac Pro
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series4.jpg' alt='iPhone이미지'/>
+							<span>
+								Mac Pro
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series5.jpg' alt='iPhone이미지'/>
+							<span>
+								Mac Mini
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series6.jpg' alt='iPhone이미지'/>
+							<span>
+								Pro Display XDR
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href='#none' title=''>
+							<img src='imgs/index_macbook_series7.jpg' alt='iPhone이미지'/>
+							<span>
+								MacBook Pro
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id='section_wide'>
+				<iframe src="https://www.youtube.com/embed/93iQRtqhWPM"></iframe>
+			</div>
+			<div id='section_iPad'>
+				<div id='section_iPadWrap'>
+					<div id='left'>
+						<h2>Real time Review</h2>
+						<p>
+							<img src='imgs/circulation.gif' alt='순환이미지'/>
+						</p>
+						<ul>
+							<li>
+								<a href='#' title='#'>
+									<span>
+										<img src='imgs/iPadd0.jpg' alt='ipad이미지'/>
+									</span>
+									<span class='width'>
+										iPad Pro	
+									</span>
+									<span class='gray'>
+										I ended up returning this one and ordering the 12.9 instead, since I decided I could use the bigger screen. The 11
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href='#' title='#'>
+									<span>
+										<img src='imgs/index_section_iPad0.png' alt='ipad이미지'/>
+									</span>
+									<span class='width'>
+										iPad mini 2	
+									</span>
+									<span class='gray'>
+										Student Perspective : Game changer for college: organization skills improved 
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href='#' title='#'>
+									<span>
+										<img src='imgs/index_section_iPad1.png' alt='ipad이미지'/>
+									</span>
+									<span class='width'>
+										iPad mini 4
+									</span>
+									<span class='gray'>
+										This iPad is absolutely amazing! The colors are brighter, and more vivid than ever! I w
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href='#' title='#'>
+									<span>
+										<img src='imgs/index_section_iPad2.png' alt='ipad이미지'/>
+									</span>
+									<span class='width'>
+										iPad 10.5-inch	
+									</span>
+									<span class='gray'>
+										 I upgraded from 2015 iPad Pro 12.9 inch to 11 inch 2018 and it's a huge difference in both performance and ligh weight experience
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href='#' title='#'>
+									<span>
+										<img src='imgs/index_section_iPad3.png' alt='ipad이미지'/>
+									</span>
+									<span class='width'>
+										12.9-in. iPad Pro
+									</span>
+									<span class='gray'>
+										The product was as expected and my son loves it. The packaging of the product was scary! It literally was put in an over size box with
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href='#' title='#'>
+									<span>
+										<img src='imgs/index_section_iPad4.jpg' alt='ipad이미지'/>
+									</span>
+									<span class='width'>
+										iPad Air gold
+									</span>
+									<span class='gray'>
+										Since picking up the iPad Pro this winter, it's become my go-to device. I originally bought it for a couch-surfing device 
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id='right'>
+						<div class='newItem'>
+							<h2>Up-to-date iPad</h2>
+							<ul>
+								<li>
+									<a href='#none' title='#'>
+										iPad Pro
+									</a>
+								</li>
+								<li>
+									<a href='#none' title='#'>
+										iPad Air
+									</a>
+								</li>
+								<li class='lastss'>
+									<a href='#none' title='#'>
+										iPad Mini
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class='newItemImg'>
+							<ul>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro0.jpg' alt='ipadpro이미지0'/>
+										</span>
+										<span class='border'>
+											Apple - 11-Inch iPad Pro (Latest Model) with Wi-Fi - 256GB - Space Gray
+										</span>
+										<span class='right'>
+											$949.99
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro1.jpeg' alt='ipadpro이미지1'/>
+										</span>
+										<span class='border'>
+											Apple 10.5-inch iPad Pro Wi-Fi 64GB Gold
+										</span>
+										<span class='right'>
+											$554.88
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro2.jpg' alt='ipadpro이미지2'/>
+										</span>
+										<span class='border'>
+											Apple 12.9" iPad Pro (Late 2018, 512GB, Wi-Fi + 4G LTE, Space Gray)
+										</span>
+										<span class='right'>
+											$1394.99
+										</span>
+									</a>
+								</li>
+								<li class='no_margin'>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro3.jpg' alt='ipadpro이미지3'/>
+										</span>
+										<span class='border'>
+											Apple iPad Pro (11-inch, Wi-Fi, 256GB) - Silver (Latest Model)
+										</span>
+										<span class='right'>
+											$799.99
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro4.jpeg' alt='ipadpro이미지4'/>
+										</span>
+										<span class='border'>
+											Apple 10.5-inch iPad Pro Wi-Fi 512GB Space Gray - Walmart.com
+										</span>
+										<span class='right'>
+											$967.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro5.jpg' alt='ipadpro이미지5'/>
+										</span>
+										<span class='border'>
+											Apple iPad Pro Tablet (32GB, Wi-Fi, 9.7in) Gray (Renewed)
+										</span>
+										<span class='right'>
+											$300.95
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro6.jpg' alt='ipadpro이미지6'/>
+										</span>
+										<span class='border'>
+											12.9-in. iPad Pro (2nd generation)
+										</span>
+										<span class='right'>
+											$999.00
+										</span>
+									</a>
+								</li>
+								<li class='no_margin'>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_pro7.jpeg' alt='ipadpro이미지7'/>
+										</span>
+										<span class='border'>
+											Apple iPad Pro 256 GB 12.9 inch with Wi-Fi+4G (Silver)
+										</span>
+										<span class='right'>
+											$793.45
+										</span>
+									</a>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air0.jpg' alt='ipadAir이미지0'/>
+										</span>
+										<span class='border'>
+											iPad Air2 silver
+										</span>
+										<span class='right'>
+											$545.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air1.jpg' alt='ipadAir이미지1'/>
+										</span>
+										<span class='border'>
+											iPad Air space gray
+										</span>
+										<span class='right'>
+											$499.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air2.jpg' alt='ipadAir이미지2'/>
+										</span>
+										<span class='border'>
+											iPad Air gold
+										</span>
+										<span class='right'>
+											$499.00
+										</span>
+									</a>
+								</li>
+								<li class='no_margin'>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air3.jpg' alt='ipadAir이미지3'/>
+										</span>
+										<span class='border'>
+											iPad Air2 space gray
+										</span>
+										<span class='right'>
+											$545.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air4.jpg' alt='ipadAir이미지4'/>
+										</span>
+										<span class='border'>
+											iPad Air2 gold
+										</span>
+										<span class='right'>
+											$545.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air5.jpg' alt='ipadAir이미지5'/>
+										</span>
+										<span class='border'>
+											iPad Air(1st generation) space gray
+										</span>
+										<span class='right'>
+											$450.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air6.jpg' alt='ipadAir이미지6'/>
+										</span>
+										<span class='border'>
+											iPad(6th generation) silver
+										</span>
+										<span class='right'>
+											$470.00
+										</span>
+									</a>
+								</li>
+								<li class='no_margin'>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_air7.jpg' alt='ipadAir이미지7'/>
+										</span>
+										<span class='border'>
+											iPad(5th generation) gold
+										</span>
+										<span class='right'>
+											$440.00
+										</span>
+									</a>
+								</li>
+							</ul>
+							<ul class='lats'>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini1.png' alt='ipadMini이미지1'/>
+										</span>
+										<span class='border'>
+											iPad mini 4 silver
+										</span>
+										<span class='right'>
+											$449.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini2.jpg' alt='ipadMini이미지2'/>
+										</span>
+										<span class='border'>
+											iPad mini 4 space gray
+										</span>
+										<span class='right'>
+											$449.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini3.jpg' alt='ipadMini이미지3'/>
+										</span>
+										<span class='border'>
+											iPad mini 4 gold
+										</span>
+										<span class='right'>
+											$449.00
+										</span>
+									</a>
+								</li>
+								<li class='no_margin'>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini4.jpg' alt='ipadMini이미지4'/>
+										</span>
+										<span class='border'>
+											iPad mini 3 silver
+										</span>
+										<span class='right'>
+											$412.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini5.jpg' alt='ipadMini이미지5'/>
+										</span>
+										<span class='border'>
+											iPad mini 2 silver
+										</span>
+										<span class='right'>
+											$389.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini6.jpg' alt='ipadMini이미지6'/>
+										</span>
+										<span class='border'>
+											iPad mini 2 space gray
+										</span>
+										<span class='right'>
+											$389.00
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini7.jpg' alt='ipadMini이미지7'/>
+										</span>
+										<span class='border'>
+											iPad mini gold
+										</span>
+										<span class='right'>
+											$529.00
+										</span>
+									</a>
+								</li>
+								<li class='no_margin'>
+									<a href='#' title='#'>
+										<span>
+											<img src='imgs/index_newItem_iPad_mini8.jpg' alt='ipad이미지'/>
+										</span>
+										<span class='border'>
+											iPad mini space gray
+										</span>
+										<span class='right'>
+											$529.00
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='apple_MacWrap'>
+				<div id='apple_MacInnerWrap'>
+					<div class='apple_MacLeft'>
+						<h2>Issue Item Now</h2>
+						<ul class='apple_Mac_IssuePic'>
+							<li>
+								<a href='#' title='#'>
+									<img src='imgs/apple_Mac_IsuePic.jpg' alt='iMac 27-in.(Retina 5K)'/>
+								</a>
+							</li>
+							<li class='apple_Mac_IssueDesc'>
+								<a href='#' title='#'>
+                                    iMac 27-in.(Retina 5K)<br/>
+                                    <span>$1799</span>
+                                </a>
+							</li>
+						</ul>
+						<ul class='apple_Mac_IssueItem'>
+							<li>
+                                <a href='#' title='#'>
+                                    1 &nbsp;[HG] iMac Pro
+                                </a>
+								<p><span>$4999</span></p>
+							</li>
+							<li>
+                                <a href='#' title='#'>
+                                    2 &nbsp;iMac 21.5-in.
+                                </a>
+								<p><span>$1099</span></p>
+							</li>
+							<li>
+                                <a href='#' title='#'>
+                                    3 &nbsp;iMac 21.5-in. (Retina 4K)
+                                </a>
+								<p><span>$1299</span></p>
+							</li>
+							<li>
+                                <a href='#' title='#'>
+                                    4 &nbsp;MacBook Air (Retina)
+                                </a>
+								<p><span>$1099</span></p>	
+							</li>
+							<li>
+                                <a href='#' title='#'>
+                                    5 &nbsp;iPad Air gold
+                                </a>
+								<p><span>$499</span></p>
+							</li>
+						</ul>
+					</div>
+					<div class='apple_MacRight'>
+						<ul>
+							<li>
+								<dl>
+									<dt>
+										<a href='#' title='#'>
+											<img src='imgs/issue0.png' alt='apple_Mac0'/>
+										</a>
+									</dt>
+									<dd class='dd_1'>
+                                        <a href='#' title='#'>
+								          [HGBF] iMac Pro
+                                        </a>
+									</dd>
+									<dd class='dd_2'>
+										$5399
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt>
+										<a href='#' title='#'>
+											<img src='imgs/issue1.png' alt='apple_Mac1'/>
+										</a>
+									</dt>
+									<dd class='dd_1'>
+                                        <a href='#' title='#'>
+										  [HGUC] Mac mini Pro
+                                        </a>
+									</dd>
+									<dd class='dd_2'>
+										$955
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt>
+										<a href='#' title='#'>
+											<img src='imgs/issue2.png' alt='apple_Mac2'/>
+										</a>
+									</dt>
+									<dd class='dd_1'>
+                                        <a href='#' title='#'>
+										  [PG] Mac Console remote controller
+                                        </a>
+									</dd>
+									<dd class='dd_2'>
+										$203
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt>
+										<a href='#' title='#'>
+											<img src='imgs/issue3.png' alt='apple_Mac3'/>
+										</a>
+									</dt>
+									<dd class='dd_1'>
+                                        <a href='#' title='#'>
+										  [MG]Mac mini
+                                        </a>    
+									</dd>
+									<dd class='dd_2'>
+										$799
+									</dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id='hot_Item'>
+					<div class='hot_ItemAd'>
+						<ul>
+							<li>
+								<h3>
+									<a href='#' title='#'>
+										<img src='imgs/hot_Item.png' alt='hot_Item'/>
+									</a>
+								</h3>
+								<div>
+									<p class='p1'>
+                                        <a href='#' title='#'>
+                                            [RG] iPhone 11 Pro
+                                        </a>
+                                    </p>
+									<p class='p2'>■29 ♥34 $1350</p>
+								</div>
+							</li>
+							<li>
+								<h3>
+									<a href='#' title='#'>
+										<img src='imgs/hot_Item.png' alt='hot_Item'/>
+									</a>
+								</h3>
+								<div>
+									<p class='p1'>
+                                        <a href='#' title='#'>
+                                            [BB] iPhone 11
+                                        </a>
+                                    </p>
+									<p class='p2'>■243 ♥210 $970</p>
+								</div>
+							</li>
+							<li>
+								<h3>
+									<a href='#' title='#'>
+										<img src='imgs/hot_Item.png' alt='hot_Item'/>
+									</a>
+								</h3>
+								<div>
+									<p class='p1'>
+                                        <a href='#' title='#'>
+                                            [RG] iPhone XR
+                                        </a>
+                                    </p>
+									<p class='p2'>■79 ♥5 $1100</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id='section_wide2'>
+					
+				</div>
+				<div id='issue_Mac'>
+					<div id='issue_MacInnerWrap'>
+						<div class='issue_MacLeft'>
+							<h2>Recommendation</h2>
+							<ul>
+								<li>
+									<dl>
+										<dt>
+											<a href='#' title='#'>
+												<img src='imgs/index_issue_Mac0.jpg' alt='iMac1'/>
+											</a>
+										</dt>
+										<dd class='dd_borderBottom'>
+												■7,323		♥2,578
+										</dd>
+										<dd>
+											<a href='#' title='#'>
+                                                [MG] iMac Pro
+                                            </a>
+										</dd>
+										<dd>
+											$4999
+										</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>
+											<a href='#' title='#'>
+												<img src='imgs/index_issue_Mac1.png' alt='iMac2'/>
+											</a>
+										</dt>
+										<dd class='dd_borderBottom'>
+												■5,546		♥1,511
+										</dd>
+										<dd>
+                                            <a href='#' title='#'>
+								                [MG] iMac 21.5-in.
+                                            </a>
+										</dd>
+										<dd>
+											$1099
+										</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>
+											<a href='#' title='#'>
+												<img src='imgs/index_issue_Mac2.png' alt='iMac3'/>
+											</a>
+										</dt>
+										<dd class='dd_borderBottom'>
+												■3,126		♥3,213
+										</dd>
+										<dd>
+											<a href='#' title='#'>
+                                                [MG] iMac 21.5-in. (Retina 4K)
+                                            </a>
+										</dd>
+										<dd>
+											$1299
+										</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>
+											<a href='#' title='#'>
+												<img src='imgs/index_issue_Mac3.jpg' alt='iMac4'/>
+											</a>
+										</dt>
+										<dd class='dd_borderBottom'>
+												■2,923		♥4,326
+										</dd>
+										<dd>
+                                            <a href='#' title='#'>
+								                [MG] MacBook Air (Retina)
+                                            </a>
+										</dd>
+										<dd>
+											$1099
+										</dd>
+									</dl>
+								</li>	
+							</ul>
+						</div>
+						<h2>Choice 2019</h2>
+						<div class='issue_MacRight'>
+							<h2 class='dd_borderBottom'>iOS & MacOS, what do you prefer?</h2>
+							<ul>
+								<li>
+									<dl>
+										<dt>
+											<a href='#' title='#'>
+												<img src='imgs/issue_MacRight.png' alt='캡틴아메리카이미지'/>
+											</a>
+										</dt>
+										<dd>
+										</dd>
+										
+									</dl>
+								</li>
+								<li class='vsImg'>
+									<img src='imgs/mcho_vs.gif' alt='vs이미지'/>
+								</li>
+								<li>
+									<dl>
+										<dt>
+											<a href='#' title='#'>
+												<img src='imgs/issue_MacRight.png' alt='아이언맨이미지'/>
+											</a>
+										</dt>
+										<dd>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+							<h2 class='dd_borderBottom'>
+								2019 Item by users
+							</h2>
+							<ul class='last_ul'>
+								<li>
+									<a href='#' title='#'>
+										1.	Mac? or MacBook?
+									</a>
+									<span>
+										9,363 votes
+									</span>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										2.	iPhone? or iPad?
+									</a>
+									<span>
+										8,294 votes
+									</span>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										3.	How do you feel about new Mac?
+									</a>
+									<span>
+										7,561 votes
+									</span>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										4.	Will you buy new AirPod soon?
+									</a>
+									<span>
+										6,213 votes
+									</span>
+								</li>
+								<li>
+									<a href='#' title='#'>
+										5.	What is Apple's reputation?
+									</a>
+									<span>
+										2,463 votes
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href='#visual' title='toTop' class='topBox'>
+				↑
+			</a>
+			<div id='div_fixed'>
+				
+			</div>
+		</div>
+		<div id='mobContainer'>
+			<div id='mobVisual'>		
+			</div>
+			<section id='mob_product_desc0'>
+				<h2>iPhone 11</h2>
+				<div>
+					<p>
+						Lightness strikes again.
+					</p>
+					<a href='#none' title='#'>Learn more &gt;</a>
+					<a href='#none' title='#'>Buy &gt;</a>
+				</div>
+			</section>
+			<section id='mob_product_desc1'>
+				<h2>iMac Pro</h2>
+				<div>
+					<p class='ani1'>
+						<img src='imgs/iMac_background0.jpg' alt=''/>
+					</p>
+					<p class='ani2'>
+						<img src='imgs/iMac_background1.jpg' alt=''/>
+					</p>
+					<p class='ani3'>
+						<img src='imgs/iMac_background2.jpg' alt=''/>
+					</p>
+				</div>
+			</section>
+			<section id='mob_product_desc2'>
+				<h2>Watch</h2>
+				<div>
+					<p>
+						You’ve never seen a watch like this.
+					</p>
+					<a href='#none' title='#'>Learn more&gt;</a>
+					<a href='#none' title='#'>Buy&gt;</a>
+				</div>
+			</section>
+			<section id='mob_product_desc3'>
+				<h2>iPad</h2>
+				<div>
+					<p>
+						Welcome to the new generation of iPad.
+					</p>
+					<a href='#none' title='#'>Learn more&gt;</a>
+					<a href='#none' title='#'>Buy&gt;</a>
+				</div>
+			</section>
+			<div id='mob_product_desc3_1'>
+				<div>
+					<b>"with intuitive gestures"</b>
+					<p>
+						The all-screen design means iPad Pro is a magical piece of glass that does everything you need, any way you hold it.
+					</p>
+					<a href='#none' title=''>
+						Feel iPads Vibe
+					</a>
+					<span>※put on your earphone if you wanna enjoy this clip</span>
+					<div>
+						<p>
+							<img src='imgs/mob_product_desc3_1_img0.png' alt='iPad movie image'/>
+						</p>
+						<p>
+							<video controls poster='imgs/mob_product_desc3_1_img0.png' autoplay>
+								<source src='mp4/ipad0.mp4' type='video/mp4'/>
+							</video>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<section id='mob_product_desc4'>
+				<h2>Beats</h2>
+				<div>
+					<p>
+						Wanna feel Dr.Dre? Try now!
+					</p>
+					<a href='#none' title='#'>Learn more&gt;</a>
+					<a href='#none' title='#'>Buy&gt;</a>
+				</div>
+				<div></div>
+			</section>
+			<section id='mob_product_desc4_1'>
+				<h3>Satisfaction</h3>
+				<div>
+					<h2>
+						All generation just Satisfy
+					</h2>
+					<p>
+						We provide Beats engineers' premium audio technique and solutions.
+						All the customers could get the new value by our providing affluent and special experiences.
+					</p>
+				</div>
+				<div class='img_div'>
+					<span>
+						<img src='imgs/beats1.jpg' alt='beats image1'/>
+					</span>
+					<span>
+						<img src='imgs/beats2.jpg' alt='beats image2'/>
+					</span>
+				</div>
+			</section>
+			<section id='mob_product_desc4_2'>
+				<h3>Preference</h3>
+				<div>
+					<img src='imgs/concert0.png' alt=''/>
+				</div>
+				<div>
+					<h2>The mood for every space</h2>
+					<p>
+						All the sound lovers love Beats. Beats has the legendary sound brand. And we provide the best quality sound whereever you are including studio, theater, concer hall, home and so on.  
+					</p>
+				</div>
+			</section>
+			<section id='mob_product_desc5'>
+				<h2>Apple pay</h2>
+				<div>
+					<p>
+						A new kind of credit card. Created by Apple, not a bank.
+					</p>
+					<a href='#none' title='#'>Learn more&gt;</a>
+					<a href='#none' title='#'>Buy&gt;</a>
+				</div>
+			</section>
+			<section id='mob_product_desc5_1'>
+				<h3>Leading</h3>
+				<div>
+					<h2>
+						Apple leading payment system
+					</h2>
+					<p>
+						Apple Card lives on your iPhone, in the Wallet app. And that makes all kinds of new things possible. You can sign up in no time and start using it right away with Apple Pay.
+					</p>
+				</div>
+				<div class='img_div_pay'>
+					<span>
+						<img src='imgs/apple_pay0.jpg' alt='beats image1'/>
+					</span>
+				</div>
+			</section>
+	    </div>
+		<div id='footerWrap'>
+			<footer id='footer'>
+				<div id='upper'>
+					<ul class='wide_ul'>
+						<li>
+							<b class='white_bold'>about me</b>
+						</li>
+						<li class='padding_bottom0'>
+							<span class='intro'>Currently working at <a  href='https://www.greenart.co.kr/' title='greencomputer link' class='orange'>GreenComputer</a> as a Frontend Developer on visualizing Team. Our mission is to guide customers improve their experience through comfortable feeling.</span>
+						</li>
+						<li>
+							<span><img src='imgs/hyeongjunKim.jpg' alt='hyeongjunKim'/></span>
+						</li>
+					</ul>
+					<div class='narrow_div'>
+						<h4><b class='white_bold'>navigations</b></h4>
+						<ul>
+							<li>
+								<a href='#' title='#'>Home</a>
+							</li>
+							<li>
+								<a href='portfolio.html' title='#'>Portfolio</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Lab</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Blog</a>
+							</li>
+							<li>
+								<a href='#' title='#'>About</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Newsroom</a>
+							</li>
+							<li>
+								<a href='#' title='#'>Contact</a>
+							</li>
+						</ul>
+					</div>
+					<ul class='contact'>
+						<li>
+							<span class='white_bold'>contact</span>
+						</li>
+						<li class='position'>
+							<img src='imgs/compass.jpg' alt='compass'/>
+							<span class='karla'>Seoul, Korea</span>
+						</li>
+						<li class='position'>
+							<img src='imgs/mailbox.jpg' alt='mailbox'/>
+							<a class='karla' href='#' title='mymail'>hyeongjunk05@gmail.com</a>
+						</li>
+						<li class='white_bold'>
+							<a href='https://mail.google.com/mail/u/0/#inbox' title='sendmailtome'>send message</a>
+						</li>
+					</ul>
+					<div class='follow_me'>
+						<h4><b class='white_bold'>follow me here</b></h4>
+						<ul>
+							<li>
+								<a href='https://www.linkedin.com/in/hyeongjunk05/?fbclid=IwAR2nyw3YXVYBHrK7oCgpbZBtQlPnra0ffNZW8ksXOPQkQtAuWnT7a0gPo-E' title='linkedIn'>
+									<img src='imgs/linked.png' alt='linkedIn'/>
+								</a>
+							</li>
+							<li>
+								<a href='https://www.instagram.com/hyeongjunk05/' title='instagram'>
+									<img src='imgs/insta.png' alt='insta'/>
+								</a>
+							</li>
+							<li class='top2px'>
+								<a href='https://www.facebook.com/hyeongjunk05' title='facebook'>
+									<img class='top0' src='imgs/facebook.png' alt='facebook'/>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id='lower'>
+					<div>
+						<span>Made with love by Hyeongjun "HJ" Kim</span>
+						<span class='border_left'>Copyright 2019</span>
+					</div>
+					<p>
+						Download
+						<a href='https://www.facebook.com/hyeongjunk05' title='resume'>
+							<span>Resume</span>
+						</a>
+					</p>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<p class='opaqueBox'>
+	</p>
+	
+ </body>
+</html>
+<!--
+	알드라이브 설치하기
+	닷홈가입하기
+-->
