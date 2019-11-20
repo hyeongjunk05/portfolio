@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang='en-US'>
+ <head>
+  <title>cart_apple</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <meta charset='utf-8'/> 	
+  <link rel='shortcut icon' href='imgs/favicon.png'/>
+  <link rel='apple-touch-icon' href='imgs/favicon.png'/>
+  <script>
+	function total(){
+		
+	 	
+		var price = document.getElementById('price');
+		var amount = document.getElementById('amount');
+		var total = document.getElementById('total');
+		
+		
+		var num_func = function(){
+			if(price.value ===''){
+				alert('수량을 입력해주세요.')
+			}else if(amount.value <= 0){
+				total.value = 0;
+				alert('1개 이상을 입력해주세요.');
+			}else{
+				total.value = price.value*amount.value;
+			}
+		}
+
+
+
+		var menuSelect = document.getElementById('menuSelect').value;
+		
+		//console.log(menuSelect);
+
+		if(menuSelect ==='typeSelect' || menuSelect ==='divide'){
+			alert('상품창으로 상품을 선택하세요');
+		}else if(menuSelect === 'pro'){
+
+			price.value = 210
+			
+			num_func();
+			
+		}else if(menuSelect === 'air'){
+			
+			price.value = 150
+			
+			num_func();
+				
+		}else if(menuSelect === 'pad'){
+
+			price.value = 340
+			
+			num_func();
+		}
+		else if(menuSelect === 'mini'){
+
+			price.value = 270
+			
+			num_func();
+		}
+	}
+  </script>
+  <style>
+		body{background-color:#000;}
+	/*########## 초기화 ##########*/
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none;}
+		a:hover, a:focus{}
+
+		body,div,header,footer,section,ul,ol,dl,dt,dd,li,p{margin:0; padding:0;}
+		div, header, nav, section, footer{display:block;}
+
+
+	/*########## header ##########*/
+		/*#wrap{width:100%; margin:0 auto;}*/
+		#headerWrap{width:100%; background-color:rgba(55,55,55,0.9); position:fixed; top:0; z-index:1;}
+		#header{width:1025px; height:78px; margin:0 auto; position:relative;}
+		h1{width:32px; height:43px; position:absolute; top:7px; overflow:hidden; transition:all 2s;}
+		h1 a img{width:100%; margin-top:-22px;}
+		#mobHeader{display:none;}
+		#mobMenu{display:none;}
+	
+	/*########## topMenu ##########*/
+		#topMenu{width:100%; height:18px; font-size:11px;}
+		
+	/*########## infoMenu ##########*/
+		#topMenu a{color:#9a9a9a; padding-left:10px;}
+		#topMenu ul{width:100%; height:100%; text-align:right;}
+
+		#topMenu li{display:inline;}
+		#topMenu li a:hover{color:#dedede; text-decoration:underline;}
+
+
+	/*########## gnb ##########*/
+		#gnb{width:100%; height:65px; font-size:14px; 
+		overflow:hidden;}
+		#gnb ul{float:left;}
+		#gnb li{display:inline;}
+
+	/*########## gnb의 search ##########*/
+		#gnb #search{width:27%; height:21px; margin-top:6px; margin-left:745px; overflow:hidden;}
+		fieldset{width:100%; border:none;}
+		fieldset p{float:left; display:inline; line-height:17px; vertical-align:bottom;}
+		.input input{width:250px; height:17.4px; text-indent:10px; border-radius:7px 0 0 7px; outline:none; border-bottom:2px solid #9a9a9a;}
+		legend{display:none;}
+		.btn{height:21px; border-radius:0 7px 7px 0; overflow:hidden;}
+		.btn img{width:92%;}
+
+	
+	/*########## gnb gnb_shop ##########*/
+		#gnb #gnb_shop{width:600px; height:25px; font-size:15px; margin-top:10px; 
+		margin-right:50px;}
+		#gnb #gnb_shop a{color:#ccc; padding-right:20px; transition:all .3s;}
+		#gnb #gnb_shop li:hover a{text-shadow:5px 5px 5px rgba(200,200,200,0.7); color:#fff;}
+
+		/*### 돋보기 ###*/
+		#gnb .gnb_none{display:none;}
+
+
+	/*########## gnb gnb_service ##########*/
+		#gnb #gnb_service{width:370px; height:25px; font-size:14px; margin-top:10px; 
+		text-align:right;}
+		#gnb #gnb_service li{padding-right:20px;}
+		#gnb #gnb_service a{color:#ccc;}
+		#gnb #gnb_service a:hover{color:#fff; border-radius:6px; background-image:-webkit-linear-gradient(left, #454545 30%, #565656); box-shadow:-4px 2px 0px #565656;}
+
+	/*########## content ##########*/
+		#content{width:1200px; margin:200px auto 0;}
+		#content_img{margin-top:40px;}
+		#content_img_p{margin-top:0;}
+		#content_img_p, #content_img_div{float:left;}
+		#content_img_p{width:615px; padding-right:100px;}
+		#content_img_p img{width:100%;}
+
+		#content:after, #content_img:after{content:''; display:block; clear:both;}
+
+		#content_img_div{width:430px; padding:0 20px 30px; border:1px solid #ccc; text-transform:uppercase; font-weight:700; line-height:18px; color:#ededed;}
+		#content_img_div h3{color:RGB(134,129,134); border-bottom:1px solid #ccc; padding:10px 0 15px; font-size:18px;}
+		#content_img_div p{line-height:30px;}
+		#content_img_div p label{display:inline-block; width:140px;}
+		#content_img_div p i{display:inline-block; width:240px; text-align:right; font-style:normal;}
+
+		
+		
+		#content_img_div input{width:40px; line-height:25px; text-align:right; float:right; border:none;}
+
+		.total{border-top:1px solid #ccc; padding:20px 0;}
+		#content_img_div .button input{width:100%; height:50px; text-align:center; background-color:blue; color:#fff; font-size:23px; border:none; border-radius:9px; outline:none; cursor:pointer;}
+
+		#content_img_div .button input:hover{background-color:rgba(0,0,255,0.8);}
+
+		#policy{padding:100px 0; color:#fff;}
+		#policy a{font-weight:700; color:RGB(160,40,210); text-decoration:none;}
+
+	/*########## footer ##########*/
+		#footerWrap{width:100%; height:425px; background-color:#2F2F37;}
+		#footerWrap #footer{width:1400px; height:100%; margin:0 auto; overflow:hidden;}
+
+
+	/*########## footer_upper ##########*/
+		#upper{width:100%; height:350px;} 
+		#upper ul{width:18%; padding-right:5%; float:left;}
+		#upper .wide_ul{width:31%}
+		
+		.white_bold{display:block; padding:60px 0 25px; color:#fff; font-family:Oswald, sans-serif; text-transform:uppercase; font-weight:700; font-size:15px; line-height:20px;}
+		.karla{font-family:Karla, sans-serif; font-size: 13px; line-height: 20px; color:#fff;}
+		.intro{color:hsla(0,0%,100%,.7); font-size:13px; line-height: 20px;}
+		.intro a.orange{color:#faaf52; text-decoration:underline;}
+		#upper .padding_bottom0{padding-bottom:30px;}
+		#upper .padding_bottom span{display:block; height:40px; padding-top:30px;}
+
+		#upper .narrow_div{float:left; width:13%/*5% 남음*/; padding-right:5%;}
+		#upper .narrow_div li{padding-bottom:13px; font-size:12px;}
+		#upper .narrow_div li a{color:hsla(0,0%,100%,.7);}
+		#upper .narrow_div li:hover a{text-decoration:underline; 
+		color:#fff;}
+
+		#upper .contact .position{position:relative;}
+		#upper .contact img{position:absolute; bottom:0; left:-3px;}
+		#upper .contact .karla{color:hsla(0,0%,100%,.7); margin-left:27px;}	
+		#upper .contact a:hover{text-decoration:underline; color:#fff;}
+		#upper li.white_bold{display:inline-block; width:85px; height:20px; padding-bottom:0; border-bottom:3px solid hsla(0,0%,100%,.7);}
+		#upper li.white_bold:hover{border-bottom:3px solid #fff;}
+		#upper li.white_bold a{color:#fff;}
+		#upper li.white_bold a:hover{text-decoration:none;}
+
+		#upper .follow_me{width:300px; float:left;}
+		#upper .follow_me ul{width:150px; height:33px; float:none;}
+		#upper .follow_me ul li{float:left; width:33px; height:100%;}
+		#upper .follow_me ul li a{position:relative; display:block; width:100%; height:100%;}
+		#upper .follow_me ul li a img{position:absolute; left:-8px;}
+		#upper .follow_me ul li:hover a img{transform:scale(1.2,1.2);}
+		#upper .follow_me ul .top2px a img{top:2px;}
+
+	/*########## footer_lower ##########*/
+		#lower{width:100%; height:15px; padding:30px 0; border-top:1px solid hsla(0,0%,100%,.2); color:hsla(0,0%,100%,.7); font-size:11px;}
+		#lower div{width:40%; float:left;}
+		#lower div span{padding-right:10px;}
+		#lower div .border_left{border-left:1px solid #999; padding-left:10px;}
+		#lower p {width:60%; text-align:right; float:left;}
+		#lower p a{color:hsla(0,0%,100%,.7);}
+		#lower p span{color:#fff;}
+		#lower p span:hover{text-decoration:underline; font-weight:700;}
+  </style>
+ </head>
+
+ <body>
+  <div id='headerWrap'>
+	<header id='header'>
+		<h1>
+			<a href='index.html' title='apple'>
+				<img src='imgs/apple_logo.svg' alt='apple logo'/>
+			</a>
+		</h1>
+		<div id='topMenu'>
+			<ul id='infoMenu'>
+				<li>
+					<a href='login.html' title='Log in'>
+						Log in
+					</a>
+					<a href='signup.html' title='Sign Up'>
+						Sign Up
+					</a>
+					<a href='#none' title='My Page'>
+						My Page
+					</a>
+				
+					<a href='#none' title='Cart'>
+						Cart
+					</a>
+					<a href='#none' title='Order/Delivery'>
+						Order/Delivery
+					</a>
+					<a href='#none' title='A/S'>
+						A/S
+					</a>
+					<a href='#none' title='appleCafe'>
+						Apple Cafe
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id='gnb'>
+			<div id='search'>
+				<form id="ac-gn-searchform" action='https://www.apple.com/search' method='get' name='f'>
+					<fieldset>
+						<legend>검색</legend>
+						<p class='input'>
+							<input id='ac-gn-searchform-input' type='text' name='src' autocomplete='off' placeholder='Search apple.com' maxlength='150' title='Search'/>
+						</p>
+						<p class='btn'>
+							<a href='#' title='search button'>
+								<img src='imgs/srchBtn_V2.png' alt='button image'/>
+							</a>
+						</p>
+					</fieldset>
+				</form>
+			</div>
+			<ul id='gnb_shop'>
+				<li>
+					<a href='mac_apple.html' title='Mac'>
+						Mac
+					</a>
+				</li>
+				<li>
+					<a href='iPad_apple.html' title='iPad'>
+						iPad
+					</a>
+				</li>
+				<li>
+					<a href='iPhone_apple.html' title='iPhone'>
+						iPhone
+					</a>
+				</li>
+				<li>
+					<a href='#none' title='Watch'>
+						Watch
+					</a>
+				</li>
+				<li>
+					<a href='#none' title='Music'>
+						Music
+					</a>
+				</li>
+				<li>
+					<a href='#none' title='Customer Service'>
+						Customer Service
+					</a>
+				</li>
+				<li class="gnb_none">
+					<a href='#none' title='디자인용품ㆍ소품'>
+						<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+					</a>
+				</li>
+				<li class="gnb_none">
+					<a href='#none' title='디자인용품ㆍ소품'>
+						<img src='imgs/srchBtn_V2.png' alt='검색이미지'/>
+					</a>
+				</li>
+			</ul>
+			<ul id='gnb_service'>
+				<li>
+					<a href='#none' title='Best'>
+						Best
+					</a>
+				</li>
+				<li>
+					<a href='#none' title='New'>
+						New
+					</a>
+				</li>
+				<li>
+					<a href='#none' title='Hot Issue'>
+						Hot Issue
+					</a>
+				</li>
+				<li>
+					<a href='#none' title='In Sale'>
+						In Sale
+					</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+  </div>
+  <div id='content'>
+	<div id='content_img'>
+		<p id='content_img_p'>
+			<img src='imgs/beats1.jpg' alt='images'/>
+		</p>
+		<div id='content_img_div'>
+			<h3>
+				<span>order summary</span>
+			</h3>
+			<p>
+				<select id='menuSelect'>
+					<option value='typeSelect'>--------select--------</option>
+					<option value='divide'>================</option>
+					<option value='pro'>iPad Pro</option>
+					<option value='air'>iPad Air</option>
+					<option value='pad'>iPad</option>
+					<option value='mini'>iPad mini</option>
+				</select>
+			</p>
+			<p>
+				<label>price</label>
+				<i>$</i><input id='price' type='text' value='' readonly/>
+			</p>
+			<p>
+				<label>amount</label>
+				<input id='amount' type='number' value='' min='1' style='border:1px solid #000; width:60px;'/>
+			</p>
+			<p class='total'>
+				<label>total</label>
+				<i>$</i><input id='total' type='text' value='' readonly/>
+			</p>
+			<p class='button'>
+				<input id='pay' type='button' value='SUM' title='SUM' onclick='total();' readonly/>
+			</p>
+
+		</div>
+	</div>
+	<div id='policy'>
+		<p>
+			<b>Price, Promotion, Processing</b>: Pricing, delivery date and other errors may be withdrawn or revised and/or your order may be cancelled at any time, without prior notice, before we have both (a) shipped or provided access to your product or service, and (b) received your payment for the product or service. All sales on Samsung.com are subject to the full <a href='#none' title='terms of sale'>Terms of Sale</a>. Opens in New Window . Samsung is not responsible for any errors, omissions or misdirected or lost orders, or orders which may be delayed. Samsung reserves the right to modify pricing and modify or cancel promotions at any time, without prior notice.<br/><br/>
+
+			Prices shown in your order, which include product price, applicable taxes, shipping, and some regulatory fees, as well as regulatory fees shown in the shopping cart, apply to the shipping address and/or billing address of your order payment. Entering a shipping address and/or billing address in a jurisdiction other than the default jurisdiction for this site may result in changes due to differences in jurisdictional regulatory fees, shipping costs, and tax.<br/><br/>
+
+			Prices and offers in the cart are subject to change until the order is submitted.
+		</p>
+	</div>
+  </div>
+  <div id='footerWrap'>
+	<footer id='footer'>
+		<div id='upper'>
+			<ul class='wide_ul'>
+				<li>
+					<b class='white_bold'>about me</b>
+				</li>
+				<li class='padding_bottom0'>
+					<span class='intro'>Currently working at <a  href='https://www.greenart.co.kr/' title='greencomputer link' class='orange'>GreenComputer</a> as a Frontend Developer on visualizing Team. Our mission is to guide customers improve their experience through comfortable feeling.</span>
+				</li>
+				<li>
+					<span><img src='imgs/hyeongjunKim.jpg' alt='hyeongjunKim'/></span>
+				</li>
+			</ul>
+			<div class='narrow_div'>
+				<h4><b class='white_bold'>navigations</b></h4>
+				<ul>
+					<li>
+						<a href='#' title='#'>Home</a>
+					</li>
+					<li>
+						<a href='portfolio.html' title='#'>Portfolio</a>
+					</li>
+					<li>
+						<a href='#' title='#'>Lab</a>
+					</li>
+					<li>
+						<a href='#' title='#'>Blog</a>
+					</li>
+					<li>
+						<a href='#' title='#'>About</a>
+					</li>
+					<li>
+						<a href='#' title='#'>Newsroom</a>
+					</li>
+					<li>
+						<a href='#' title='#'>Contact</a>
+					</li>
+				</ul>
+			</div>
+			<ul class='contact'>
+				<li>
+					<span class='white_bold'>contact</span>
+				</li>
+				<li class='position'>
+					<img src='imgs/compass.jpg' alt='compass'/>
+					<span class='karla'>Seoul, Korea</span>
+				</li>
+				<li class='position'>
+					<img src='imgs/mailbox.jpg' alt='mailbox'/>
+					<a class='karla' href='#' title='mymail'>hyeongjunk05@gmail.com</a>
+				</li>
+				<li class='white_bold'>
+					<a href='https://mail.google.com/mail/u/0/#inbox' title='sendmailtome'>send message</a>
+				</li>
+			</ul>
+			<div class='follow_me'>
+				<h4><b class='white_bold'>follow me here</b></h4>
+				<ul>
+					<li>
+						<a href='https://www.linkedin.com/in/hyeongjunk05/?fbclid=IwAR2nyw3YXVYBHrK7oCgpbZBtQlPnra0ffNZW8ksXOPQkQtAuWnT7a0gPo-E' title='linkedIn'>
+							<img src='imgs/linked.png' alt='linkedIn'/>
+						</a>
+					</li>
+					<li>
+						<a href='https://www.instagram.com/hyeongjunk05/' title='instagram'>
+							<img src='imgs/insta.png' alt='insta'/>
+						</a>
+					</li>
+					<li class='top2px'>
+						<a href='https://www.facebook.com/hyeongjunk05' title='facebook'>
+							<img class='top0' src='imgs/facebook.png' alt='facebook'/>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id='lower'>
+			<div>
+				<span>Made with love by Hyeongjun "HJ" Kim</span>
+				<span class='border_left'>Copyright 2019</span>
+			</div>
+			<p>
+				Download
+				<a href='https://www.facebook.com/hyeongjunk05' title='resume'>
+					<span>Resume</span>
+				</a>
+			</p>
+		</div>
+	</footer>
+  </div>
+ </body>
+</html>
