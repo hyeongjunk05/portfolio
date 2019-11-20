@@ -22,10 +22,10 @@
 		
 		var num_func = function(){
 			if(price.value ===''){
-				alert('수량을 입력해주세요.')
+				alert('insert the amount')
 			}else if(amount.value <= 0){
 				total.value = 0;
-				alert('1개 이상을 입력해주세요.');
+				alert('insert more than 1');
 			}else{
 				total.value = price.value*amount.value;
 			}
@@ -38,7 +38,7 @@
 		//console.log(menuSelect);
 
 		if(menuSelect ==='typeSelect' || menuSelect ==='divide'){
-			alert('상품창으로 상품을 선택하세요');
+			alert('select the item in category');
 		}else if(menuSelect === 'pro'){
 
 			price.value = 210
