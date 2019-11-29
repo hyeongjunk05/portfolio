@@ -879,9 +879,7 @@
 			
 				var num = $(this).children('a').attr('href').substring(10,11);
 
-				$('#view').html('<p><img src="imgs/issue'+num+'.png" alt="이미지"></p>').css({
-					'height':$(this).children('a').children().height();
-				});
+				$('#view').html('<p><img src="imgs/issue'+num+'.png" alt="이미지"></p>');
 				$('#view, #full').show();
 
 				return false;
