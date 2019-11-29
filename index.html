@@ -625,6 +625,10 @@
 			#mob_product_desc5_1 .img_div_pay img{width:110%;}
 
 			.opaqueBox{display:none;}
+		
+		/*############# modal-popup #############*/
+			#view{width:720px; height:480px; border:5px solid #f00; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); box-shadow:10px 10px 10px rgba(0,0,0,0.5); z-index:1;}
+			#full{width:100%; height:100%; background-color:rgba(0,0,0,0.5); position:fixed; left:0; top:0;}
 
 		/*########## footer ##########*/
 			#footerWrap{width:100%; height:100%; background-color:#2F2F37;}
@@ -859,9 +863,30 @@
 				$(this).next().children('p:last-child').css({'borderBottom':'none'});
 				$(this).next().slideDown(500);
 			});
+		});			
+			
+				
+		/* modal popup 기능*/
+		
+		$(function(){
+		
+			$('#view, #full').hide();
+
+			$('.apple_MacRight ul li dl dt').click(function(){
+			
+				var num = $(this).children('a').attr('href').substring(10,11);
+
+				$('#view').html('<p><img src="imgs/issue'+num+'.png" alt="이미지"></p>');
+				$('#view, #full').show();
+
+				return false;
+			});
+
+			$('#view, #full').click(function(){
+				$('#view, #full').hide();
+			});
 		});
 	</script>
-
  </head>
 
  <body>
@@ -1753,7 +1778,7 @@
 							<li>
 								<dl>
 									<dt>
-										<a href='#' title='#'>
+										<a href='imgs/issue0.png' title='#'>
 											<img src='imgs/issue0.png' alt='apple_Mac0'/>
 										</a>
 									</dt>
@@ -2292,6 +2317,10 @@
 	</div>
 	<p class='opaqueBox'>
 	</p>
+	<div id='view'>	
+	</div>
+	<div id='full'>	
+	</div>
 	<!-- ET: 0.6814968585968s 1.9.1 -->
 	<!--
 	Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
