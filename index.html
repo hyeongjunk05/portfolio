@@ -880,8 +880,15 @@
 			
 				var num = $(this).children('a').attr('href').substring(10,11);
 
-				$('#view').html('<p><img src="imgs/issue'+num+'.png" alt="이미지"></p>');
+				$('#view').html('<p><img src="imgs/issue'+num+'.png" alt="이미지"></p>').css();
 				$('#view, #full').show();
+				
+				/*$(".area").css({"height":$(window).height() });
+
+				$("#wrap a:eq(0)").bind("click focus",function(){
+				var area0 =  $(".area0").offset().top;
+				$("html, body").animate({scrollTop:area0},500);*/
+			});
 
 				return false;
 			});
@@ -2321,9 +2328,9 @@
 	</div>
 	<p class='opaqueBox'>
 	</p>
-	<div id='view'>	
-	</div>
-	<div id='full'>	
+	<div id='full'>
+		<div id='view'>	
+		</div>
 	</div>
 	<!-- ET: 0.6814968585968s 1.9.1 -->
 	<!--
